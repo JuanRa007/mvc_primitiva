@@ -1,0 +1,447 @@
+<h3>1. No hay que ir para atrás ni para darse impulso (Lao Tsé)</h3>
+<p>Una frase motivadora que aconseja seguir siempre nuestro camino a pesar de las adversidades.</p>
+<h3>2. No hay caminos para la paz; la paz es el camino (Mahatma Gandhi)</h3>
+<p>Gandhi nos dejó para la historia esta preciosa frase sobre la paz.</p>
+<h3>3. Haz el amor y no la guerra (John Lennon)</h3>
+<p>El cantante John Lennon siempre tuvo una mentalidad pacificadora.</p>
+<h3>4. Para trabajar basta estar convencido de una cosa: que trabajar es menos aburrido que divertirse (Charles Baudelaire)</h3>
+<p>El trabajo, a pesar de que siempre apetezca hacerlo, es bueno para nuestra salud mental.</p>
+<h3>5. Lo peor que hacen los malos es obligarnos a dudar de los buenos (Jacinto Benavente)</h3>
+<p>Siempre es mejor ser honrado aunque a veces podamos creer lo contrario.</p>
+<h3>6. Las guerras seguirán mientras el color de la piel siga siendo más importante que el de los ojos (Bob Marley)</h3>
+<p>El racismo y los prejuicios han sido la causa de muchas guerras.</p>
+<h3>7. Aprende a vivir y sabrás morir bien (Confucio)</h3>
+<p>La vida hay que disfrutarla en cada momento y no estar muerto en vida.</p>
+<h3>8. Cada día sabemos más y entendemos menos (Albert Einstein)</h3>
+<p>No importa que cada vez haya más conocimiento si no lo sabemos aplicar.</p>
+<h3>9. El mundo no está en peligro por las malas personas sino por aquellas que permiten la maldad (Albert Einstein)</h3>
+<p>Siempre habrá gente mala, pero no podemos dejar que triunfen.</p>
+<h3>10. La medida del amor es amar sin medida (San Agustín)</h3>
+<p>Una frase romántica que significa que debemos amar con todo.</p>
+<h3>11. No hay nada que un hombre no sea capaz de hacer cuando una mujer le mira (Casanova)</h3>
+<p>El amor de un hombre por una mujer es capaz de mover el mundo.</p>
+<h3>12. Dar el ejemplo no es la principal manera de influir sobre los demás; es la única manera. (Albert Einstein)</h3>
+<p>A la hora de educar, es necesario que nosotros mismos seamos coherentes con lo que pretendemos enseñar.</p>
+<h3>13. El dinero no puede comprar la vida (Bob Marley)</h3>
+<p>Por más que lo creamos, el dinero ni da la felicidad ni nos hace inmortales.</p>
+<h3>14. Si es bueno vivir, todavía es mejor soñar, y lo mejor de todo, despertar (Antonio Machado)</h3>
+<p>Una fras poética sobre vivir lo que nos hace felices.</p>
+<h3>15. La mayor declaración de amor es la que no se hace; el hombre que siente mucho, habla poco (Platón)</h3>
+<p>Una reflexión de Platón sobre el amor.</p>
+<h3>16. Si das pescado a un hombre hambriento lo nutres durante una jornada. Si le enseñas a pescar, le nutrirás toda su vida (Lao Tsé)</h3>
+<p>Sin duda, una gran enseñanza para la vida.</p>
+<h3>17. El poder no cambia a las personas, solo revela quiénes son realmente (Meryl Streep)</h3>
+<p>Una interesante reflexión sobre las dinámicas de poder y la identidad, expresaa perfectamente por esta famosa actriz.</p>
+<h3>18. Ningún hombre es lo bastante bueno para gobernar a otros sin su consentimiento. (Abraham Lincoln)</h3>
+<p>En referencia a la importancia de la democracia.</p>
+<h3>19. Todo lo que se come sin necesidad se roba al estómago de los pobres (Mahatma Gandhi)</h3>
+<p>Este célebre personaje siempre tuvo en mente mejorar el mundo.</p>
+<h3>20. Vivir sola es como estar en una fiesta donde nadie te hace caso (Marilyn Monroe)</h3>
+<p>Una frase famosa de Marilyn Monroe con cierto toque de ironía.</p>
+<h3>21. El cuerpo humano es el carruaje; el yo, el hombre que lo conduce; el pensamiento son las riendas, y los sentimientos, los caballos (Platón)</h3>
+<p>Un símil de platón sobre el hombre y un carruaje de caballos.</p>
+<h3>22. Estar preparado es importante, saber esperarlo es aún más, pero aprovechar el momento adecuado es la clave de la vida (Arthur Schnitzler)</h3>
+<p>La paciencia es una de las mejores virtudes de los seres humanos.</p>
+<h3>23. No estoy tan enamorado de mis propias opiniones que ignore lo que los demás puedan pensar acerca de ellas (Copérnico)</h3>
+<p>Gran cita de Copérnico sobre cómo nos importan las opiniones de los demás.</p>
+<h3>24. La más estricta justicia no creo que sea siempre la mejor política (Abraham Lincoln)</h3>
+<p>En el término medio es donde se encuentra la mejor virtud.</p>
+<h3>25. El sabio no dice nunca todo lo que piensa, pero siempre piensa todo lo que dice (Aristóteles)</h3>
+<p>Con los años, uno aprende cómo debe comportarse con los demás.</p>
+<h3>26. Hay dos cosas que son infinitas: el universo y la estupidez humana; de la primera no estoy muy seguro (Albert Einstein)</h3>
+<p>Una irónica frase del gran pensador, Albert Einstein.</p>
+<h3>27. El nacimiento y la muerte no son dos estados distintos, sino dos aspectos del mismo estado (Mahatma Gandhi)</h3>
+<p>Una gran reflexión de este gran personaje.</p>
+<h3>28. Lo que importa verdaderamente en la vida no son los objetivos que nos marcamos, sino los caminos que seguimos para lograrlo (Peter Bamm)</h3>
+<p>De nada sirve marcarse objetivos si luego tiramos la toalla a mitad de camino.</p>
+<h3>29. El mundo es bello, pero tiene un defecto llamado hombre (Friedrich Nietzsche)</h3>
+<p>El hombre puede ser el peor enemigo del hombre.</p>
+<h3>30.La pereza viaja tan despacio que la pobreza no tarda en alcanzarla (Benjamin Franklin)</h3>
+<p>Ser perezoso es un gran defecto del ser humano.</p>
+<h3>31. Una velada en que todos los presentes estén absolutamente de acuerdo es una velada perdida (Albert Einstein)</h3>
+<p>La riqueza está en el debate, no en opinar todos lo mismo.</p>
+<h3>32. Pienso, luego existo (René Descartes)</h3>
+<p>Sin lugar a dudas, la frase más famosa de Descartes.</p>
+<h3>33. Lo que no te mata, te hace más fuerte (Friedrich Nietzsche)</h3>
+<p>De los errores se aprende y, por tanto, podemos mejorar con ellos. <a href="/reflexiones/frases-friedrich-nietzsche">Una genial frase de Nietzsche</a>.</p>
+<h3>34. No abras los labios si no estás seguro de que lo que vas a decir es más hermoso que el silencio (Proverbio árabe)</h3>
+<p>Hay palabras que pueden herir a otras personas. En esos casos, es mejor no hablar.</p>
+<h3>35. De todos los animales de la creación el hombre es el único que bebe sin tener sed, come sin tener hambre y habla sin tener nada que decir (John Steinbeck)</h3>
+<p>Gran verdad en estas palabras del autor.</p>
+<h3>36. La esperanza es un estimulante vital muy superior a la suerte (Friedrich Nietzsche)</h3>
+<p>Una frase similar a la también famosa cita: “La esperanza es lo último que se pierde&quot;.</p>
+<h3>37. Un hermano puede no ser un amigo, pero un amigo será siempre un hermano. (Benjamin Franklin)</h3>
+<p>La amistad es una de las cosas más bonitas que podemos vivir, pues los amigos no vienen de serie, sino que se eligen.</p>
+<h3>38. Sólo puede ser feliz siempre el que sepa ser feliz con todo (Confucio)</h3>
+<p>Las expectativas irracionales y el no valorar lo que uno tiene hace a las personas tremendamente infelices.</p>
+<h3>39. Ninguna persona merece tus lágrimas, y quien se las merezca no te hará llorar (Gabriel García Márquez)</h3>
+<p>Cuando alguien nos hace llorar continuamente, entonces estamos en un <a href="/pareja/amor-toxico">amor tóxico</a>.</p>
+<h3>40. De humanos es errar y de necios permanecer en el error (Marco Tulio Cicerón)</h3>
+<p>Los errores son parte de la vida, hay que aprender de ellos.</p>
+<h3>41. Algunas personas son tan falsas que ya no distinguen que lo que piensan es justamente lo contrario de lo que dicen (Marcel Aymé)</h3>
+<p>Una palabras que hacen referencia a los <a href="/clinica/mentiroso-compulsivo-psicoanalizado-caso-real">mentirosos compulsivos</a>.</p>
+<h3>42. La verdadera sabiduría está en reconocer la propia ignorancia (Sócrates)</h3>
+<p>Conocer nuestros límites nos hace sabios e inteligentes.</p>
+<h3>43. La peor experiencia es la mejor maestra (Kovo)</h3>
+<p>Es en las peores situaciones cuando más crecemos.</p>
+<h3>44. La Educación es el pasaporte hacia el futuro, el mañana pertenece a aquellos que se preparan para él en el día de hoy (Malcolm X)</h3>
+<p>La educación es sumamente importante en nuestro desarrollo.</p>
+<h3>45. Los amigos se convierten con frecuencia en ladrones de nuestro tiempo (Platón)</h3>
+<p>Platón también era irónico, como puede apreciarse en esta frase.</p>
+<h3>46. No permitas que ningún ser humano te haga caer tan bajo como para odiarle (Martin Luther King)</h3>
+<p>Una de las enseñanzas más conocidas de este enorme personaje.</p>
+<h3>47. No puedo esperar a hacerlo, quiero hacerlo ahora, quiero que ocurra si va a ocurrir (Georgia O&#x27;Keeffe)</h3>
+<p>No todas las cosas importantes en la vida tienen por qué ser objetivos a largo plazo.</p>
+<h3>48. Un amigo de todos es una amigo de nadie (Aristóteles)</h3>
+<p>Los buenos amigos pueden contarse con las palmas de las manos.</p>
+<h3>49. Hace falta toda una vida para aprender a vivir (Séneca)</h3>
+<p>Las personas estamos en continuo crecimiento todo el tiempo. Nunca se sabe lo suficiente.</p>
+<h3>50. No pain no gain (Benjamín Franklin)</h3>
+<p>Una cita que se utiliza en el circuito del fitness y que se refirer a “sin dolor no hay resultados.</p>
+<h3>51. Estos son mis principios y si no te gustan, tengo otros (Groucho Marx)</h3>
+<p>Una frase muy al estilo de este comediante.</p>
+<h3>52. La política es el arte de buscar problemas, encontrarlos, realizar un diagnóstico falso y aplicar después remedios equivocados (Groucho Marx)</h3>
+<p>Una reflexión con humor sobre un tema tan serio como es la política.</p>
+<h3>53. Los verdaderos líderes deben estar dispuestos a sacrificarlo todo por la libertad de su pueblo (Nelson Mandela)</h3>
+<p>Mandela siempre será recordado como uno de los líderes más honestos y querido por su pueblo.</p>
+<h3>54. Es mejor permanecer callado y parecer tonto que hablar y despejar las dudas definitivamente (Groucho Marx)</h3>
+<p>A veces es mejor no decir nada, pues puede ser peor el remedio que la enfermedad.</p>
+<h3>55. Aquel que más posee, más miedo tiene de perderlo (Leonardo Da Vinci)</h3>
+<p>El genial artista también realizaba reflexiones geniales.</p>
+<h3>56. La inspiración existe, pero tiene que encontrarte trabajando (Picasso)</h3>
+<p>Este pintor sabía perfectamente que la inspiración llega cuando la buscas, pues la creatividad tiene mucho que ver con la obsesión.</p>
+<h3>57. Incluso la gente que afirma que no podemos hacer nada para cambiar nuestro destino, mira antes de cruzar la calle (Stephen Hawking)</h3>
+<p>Se pueda apreciar la ironía de esta frase, que va dirigida a aquellos escépticos sobre las consecuencias de la actitud para cambiar las cosas.</p>
+<h3>58. Ojo por ojo y el mundo acabará ciego (Mahatma Gandhi)</h3>
+<p>La violencia lo único que hace es generar violencia.</p>
+<h3>59. Vive como si fueras a morir mañana; aprende como si el mundo fuera a durar para siempre (Mahatma Gandhi)</h3>
+<p>La clave para ser feliz en esta vida es vivir el presente plenamente.</p>
+<h3>60. Solo sé que no sé nada (Sócrates)</h3>
+<p>El humilde Sócrates, dejando claro que no podemos dar nada por sentado.</p>
+<h3>61. Nunca rompas el silencio si no es para mejorarlo (Beethoven)</h3>
+<p>Cuando vamos a hablar, mejor pensar las cosas. No hay necesidad de malgastar la voz.</p>
+<h3>62. Puedes engañar a todo el mundo algún tiempo. Puedes engañar a algunos todo el tiempo. Pero no puedes engañar a todo el mundo todo el tiempo (Abraham Lincoln)</h3>
+<p>Se pilla antes a un mentiroso que a un cojo.</p>
+<h3>63. La mejor manera de librarse de la tentación es caer en ella (Oscar Wilde)</h3>
+<p>Una ingeniosa cita de un ingenioso personaje, Oscar Wilde.</p>
+<h3>64. La duda es la madre de la invención (Galileo Galilei)</h3>
+<p>En los momentos de duda e incertidumbres es cuando podemos sacar lo mejor de nosotros.</p>
+<h3>65. Podrán cortar todas las flores, pero no podrán detener la primavera (Pablo Neruda)</h3>
+<p>El poeta Pablo Neruda nos regaló esta frase motivadora.</p>
+<h3>66. Es tan corto el amor y tan largo el olvido (Pablo Neruda)</h3>
+<p>De nuevo Neruda, pero esta vez la temática de sus palabras son en referencia al amor.</p>
+<h3>67. Uno llega a ser grande por lo que lee y no por lo que escribe (Borges)</h3>
+<p>La belleza de la escritura de alguien tiene su origen en la lectura.</p>
+<h3>68. Uno es dueño de lo que calla y esclavo de lo que habla (Sigmund Freud)</h3>
+<p>El padre del Psicoanálisis hace una mención a lo que decimos y sus consecuencias.</p>
+<h3>69. El único hombre que no se equivoca es el que nunca hace nada (Goethe)</h3>
+<p>Otra forma de decir esta frase es: “si no arriesgas, no ganas”.</p>
+<h3>70. Vale más hacer y arrepentirse, que no hacer y arrepentirse (Maquiavelo)</h3>
+<p>Unas palabras que tienen el mismo significado que la frase anterior.</p>
+<h3>71. Si quieres cambiar al mundo, cámbiate a ti mismo (Mahatma Gandhi)</h3>
+<p>El pensador indio nos recuerda que para cambiar el entorno, primero es necesario mirarse a uno mismo.</p>
+<h3>72. Un amigo fiel es un alma en dos cuerpos (Aristóteles)</h3>
+<p>La amistad puede ser tan profunda que la persona que es nuestra amiga puede ser como nuestra familia.</p>
+<h3>73. La vida no es sino una continua sucesión de oportunidades para sobrevivir (Gabriel García Márquez)</h3>
+<p>Aunque no nos guste admitirlo, la vida es complicada y puede ser un lugar hostil. Eso sí, hay que seguir adelante con optimismo.</p>
+<h3>74. Se necesita poco para hacer las cosas bien, pero menos aún para hacerlas mal. (Paul Bocuse)</h3>
+<p>Cuesta mucho que las cosas salgan como uno quiere, pero es fácil perderlo si nos descentramos.</p>
+<h3>75. Con veinte años todos tienen el rostro que Dios les ha dado; con cuarenta el rostro que les ha dado la vida y con sesenta el que se merecen (Albert Schweitzer)</h3>
+<p>La edad, respecto al físico, no perdona.</p>
+<h3>76. El amor no tiene cura, pero es la única medicina para todos los males (Konrad Adenauer)</h3>
+<p>El desamor puede ser una experiencia dolorosa, pero no hay nada más increíble que el amor.</p>
+<h3>76. No hay camino para la verdad, la verdad es el camino (Mahatma Gandhi)</h3>
+<p>Una cita que se asemeja a la pronunciada por Nelson Mandela (que habla sobre la paz), pero en este caso trata el tema de la verdad.</p>
+<h3>77. El éxito tiene muchos padres, pero el fracaso es huérfano (John Fitzgerald Kennedy)</h3>
+<p>Cuando estamos en lo más alto, los amigos nos vienen solos. Pero cuando las cosas nos van mal, la gran mayoría desaparece.</p>
+<h3>78. Quien no haya sufrido lo que yo, que no me de consejos (Sófocles)</h3>
+<p>La experiencia es una de las mejores maneras de aprender.</p>
+<h3>79. La vida es un diez por ciento como la hacemos y un noventa por ciento como la tomamos (Irving Berlín)</h3>
+<p>Una cita que viene a decir que la actitud es muy importante para lograr el éxito.</p>
+<h3>80. El hombre que más ha vivido no es aquél que más años ha cumplido, sino aquel que más ha experimentado la vida (Jean Jacques Rousseau)</h3>
+<p>La experiencia es una de las mejores maneras de aprender. Es lo que se conoce como aprendizaje experiencial.</p>
+<h3>81. En los momentos de crisis, solo la imaginación es más importante que el conocimiento (Albert Einstein)</h3>
+<p>El científico alemán fue un pensador total.</p>
+<h3>82. Nuestros hijos no tendrán tiempo para discutir sobre el cambio climático. Solo podrán convivir con sus efectos (Barack Obama)</h3>
+<p>El expresidente de Estados Unidos pronunció esta frase para advertir de las consecuencias de la contaminación global.</p>
+<h3>83. Yo traeré de regreso el sueño americano: más grande, mejor y más fuerte que nunca. Volveremos hacer de EE.UU una nación poderosa (Donald Trump)</h3>
+<p>Una sentencia que aupó a Trump hasta la presidencia de los EEUU.</p>
+<h3>84. Si quieres cambiar el mundo, toma tu pluma y escribe. (Martín Lutero)</h3>
+<p>Las ideas plasmadas sobreviven y se hacen más fuertes.</p>
+<h3>85. Hay verdades que no son para todos los hombres, ni para todos los tiempos (Voltaire)</h3>
+<p>Una de las citas célebres más recordadas de este pensador francés.</p>
+<h3>86. Sé el cambio que quieres ver en el mundo (Mahatma Gandhi)</h3>
+<p>El activista y político indio Mahatma Gandhi dejó muchas frases para la historia. En sus discursos hablaba de paz, libertad y fraternidad.</p>
+<h3>87. La raíz del sufrimiento es el apego (Buda)</h3>
+<p>Uno de los principios elementales de la religión budista, pronunciados por su fundador.</p>
+<h3>88. Todo lo que decimos es “Dale una oportunidad a la paz” (John Lennon)</h3>
+<p>El ex integrante de los Beatles creó auténticos himnos para la paz y el amor.</p>
+<h3>89. La religión es el opio del pueblo (Karl Marx)</h3>
+<p>Una de las frases más célebres del famoso historiador y economista alemán Karl Marx.</p>
+<h3>90. Hay dos clases de hombres: quienes hacen la historia y quienes la padecen (Camilo José Cela)</h3>
+<p>El escritor español Camilo José Cela dejó varias frases muy célebres para la historia de la literatura universal.</p>
+<h3>91. Si Hitler invadiera el infierno, yo haría un discurso en la Cámara de los Comunes con referencias favorables al diablo (Winston Churchill)</h3>
+<p>Una de las muchas frases históricas que pronunció en vida el famoso estadista inglés Winston Churchil.</p>
+<h3>92. Todo lo que necesitas es amor (John Lennon)</h3>
+<p>Una de las frases de la famosa canción de los Beatles “All you need is love”.</p>
+<h3>93. La verdad es siempre revolucionaria (Lenin)</h3>
+<p>El revolucionario líder ruso Vladimir Lenin fue uno de los intelectuales más importantes de su país.</p>
+<h3>94. La peor lucha es la que no se hace (Karl Marx)</h3>
+<p>Los aportes intelectuales del pensador Karl Marx se encuentran entre los más relevantes de la historia de la filosofía.</p>
+<h3>95. Vence la ira con serenidad. Vence la maldad con bondad. Vence el egoísmo con generosidad. Vence la deshonestidad con verdad (Buda)</h3>
+<p>Otra de las frases más importantes del fundador de la religión budista.</p>
+<h3>96. La historia me absolverá (Fidel Castro)</h3>
+<p>Una de las frases más conocidas del célebre revolucionario cubano Fidel Castro.</p>
+<h3>97. Hay dos maneras de vivir su vida: una como si nada es un milagro, la otra es como si todo es un milagro (Albert Einstein)</h3>
+<p>El físico alemán Albert Einstein nos dejó importantes frases sobre la vida y el ser humano.</p>
+<h3>98. Veni, Vidi, Vici (Julio César)</h3>
+<p>Una de las sentencias más famosas que pronunció el célebre político y militar romano en una de sus campañas militares más importantes.</p>
+<h3>99. No sé con qué armas se peleará la tercera guerra mundial, pero la cuarta será con palos y piedras (Albert Einstein)</h3>
+<p>Una profunda y terrible frase que nos hace reflexionar sobre los horrores de la guerra nuclear.</p>
+<h3>100. Los seres humanos hacen su propia historia, aunque bajo circunstancias influidas por el pasado (Karl Marx)</h3>
+<p>Karl Marx estudió durante toda su carrera la naturaleza de las sociedades y los mecanismos de los procesos sociales.</p>
+<h3>101. Si quieres ser feliz, sé feliz (León Tolstoi)</h3>
+<p>León Tolstoi fue otro de los intelectuales más importantes de la Rusia de finales del XIX y principios del XX.</p>
+<h3>102. Aprende a dejar ir. Esa es la clave de la felicidad (Buda)</h3>
+<p>La figura central del budismo nos dejó una serie de preceptos clave en su religión.</p>
+<h3>103. La historia se repite, ese es uno de los errores de la historia (Charles Darwin)</h3>
+<p>Una sorprendente y profunda frase pronunciada por el naturalista inglés Charles Darwin.</p>
+<h3>104. La felicidad se alcanza cuando lo que uno piensa, lo que uno dice y lo que uno hace están en armonía (Mahatma Gandhi)</h3>
+<p>Gandhi luchó durante varias décadas por la libertad de su pueblo y teorizó sobre la bondad y la armonía de las personas.</p>
+<h3>105. Los pecados escriben la historia, el bien es silencioso (Goethe)</h3>
+<p>Una de las frases más célebres del dramaturgo, novelista y poeta alemán Goethe.</p>
+<h3>106. No deseo que las mujeres tengan poder sobre los hombres, sino sobre ellas mismas (Mary Wollstonecraft)</h3>
+<p>Una de las pioneras del feminismo nos habla sobre los roles de género en una de las frases más célebres basadas en la crítica social.</p>
+<h3>107. Vale más actuar exponiéndose a arrepentirse de ello, que arrepentirse de no haber hecho nada (Giovanni Boccaccio)</h3>
+<p>De lo único que podemos arrepentirnos es de no haber hecho algo que deseábamos hacer.</p>
+<h3>108. No he venido a complacer a nadie, mi misión es crear (Frida Kahlo)</h3>
+<p>Toda una declaración de intenciones que ha quedado grabada en la <a href="/cultura/historia-del-arte">Historia del Arte</a>.</p>
+<h3>109. El pesimista se queja del viento; el optimista espera que cambie; el realista ajusta las velas (William George Ward)</h3>
+<p>El pesimismo nos inmoviliza y no nos deja avanzar.</p>
+<h3>110. No se puede encontrar la paz evitando la vida (Virginia Woolf)</h3>
+<p>Estar siempre huyendo de los problemas es, en realidad, una manera de acumular mieos y ansiedad.</p>
+<h3>111. La libertad no consiste en tener un buen amo, sino en no tener ninguno (Cicerón)</h3>
+<p>Una reflexión potente sobre el verdadero significado de la libertad, que va más allá de encontrar &quot;buenos líderes&quot; y apunta a la autonomía total.</p>
+<h3>112. Una nación que gasta más en armamento militar que en programas sociales se acerca a la muerte espiritual (Martin Luther King)</h3>
+<p>Con esta frase, Luther King critica con firmeza la desproporción entre la inversión en guerra y en humanidad.</p>
+<h3>113. Donde hay amor, hay vida (Mahatma Gandhi)</h3>
+<p>Una de las frases más puras de Gandhi, que conecta directamente el amor con la experiencia más plena de la existencia.</p>
+<h3>114. Si no recuerdas la más ligera locura en que el amor te hizo caer, no has amado (William Shakespeare)</h3>
+<p>Shakespeare, como gran conocedor del alma humana, sabía que el amor verdadero siempre deja un rastro de dulce locura.</p>
+<h3>115. La juventud no es un tiempo de la vida, es un estado del espíritu (Mateo Alemán)</h3>
+<p>Una cita que invita a pensar en la juventud no como una edad, sino como una actitud frente a la vida.</p>
+<h3>116. El alma que hablar puede con los ojos, también puede besar con la mirada (Gustavo Adolfo Bécquer)</h3>
+<p>El romanticismo español reflejado en esta imagen tan poética como intensa sobre el lenguaje del amor no verbal.</p>
+<h3>117. La injusticia, en cualquier parte, es una amenaza a la justicia en todas partes (Martin Luther King)</h3>
+<p>Un llamado universal a la solidaridad y la lucha contra cualquier forma de desigualdad.</p>
+<h3>118. Una mentira puede dar la vuelta al mundo antes de que la verdad tenga tiempo de ponerse los zapatos (Mark Twain)</h3>
+<p>El humor mordaz de Twain se convierte aquí en crítica social sobre la rapidez de la desinformación.</p>
+<h3>119. El arte de vencer se aprende en las derrotas (Simón Bolívar)</h3>
+<p>El libertador sudamericano pone en valor la resiliencia que nace del fracaso y que permite, eventualmente, conquistar la victoria.</p>
+<h3>120. Cuanto más grande es el caos, más próxima está la solución (Carl Jung)</h3>
+<p>Una frase del padre de la psicología analítica que nos invita a encontrar sentido y orden incluso en medio del caos.</p>
+<h3>121. El secreto de la existencia humana no solo está en vivir, sino también en saber para qué se vive (Fiódor Dostoyevski)</h3>
+<p>Una reflexión filosófica profunda sobre el propósito, uno de los temas centrales en la obra del gran novelista ruso.</p>
+<h3>122. El que tiene un porqué para vivir puede soportar casi cualquier cómo (Friedrich Nietzsche)</h3>
+<p>Una de las frases más poderosas de Nietzsche, que resuena tanto en la psicología como en la filosofía existencial.</p>
+<h3>123. La libertad es el derecho de hacer lo que no perjudica a los demás (Voltaire)</h3>
+<p>Una definición precisa y ética de libertad, que encuentra su límite natural en el respeto al otro.</p>
+<h3>124. El amor es la única cosa que crece cuando se reparte (Antoine de Saint-Exupéry)</h3>
+<p>El autor de <em>El Principito</em> nos recuerda que el amor, lejos de agotarse, se multiplica con cada acto de entrega.</p>
+<h3>125. No podemos resolver los problemas con el mismo pensamiento que usamos al crearlos (Albert Einstein)</h3>
+<p>Einstein invita al cambio de perspectiva como única vía real para la transformación de nuestros conflictos.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+52 frases célebres sobre la vida
+--------------------------------
+
+"Cada momento es especial para quien tiene la visión de reconocerlo como tal". Henry Miller.
+"La vida es muy peligrosa. No por las personas que hacen el mal, sino por las que se sientan a ver lo que pasa". Albert Einstein.
+"Asegúrate de que colocas tus pies en el lugar correcto y luego, mantente firme". Abraham Lincoln.
+"La felicidad no brota de la razón, sino de la imaginación". Immanuel Kant.
+"No se puede encontrar la paz evitando la vida". Virginia Woolf.
+"Lo que haces por ti se desvanece cuando mueres. Lo que haces por el resto conforma tu legado". Kalu Ndukwe Kalu.
+"Buenos amigos, buenos libros y tener una conciencia tranquila: esta es la vida ideal". Mark Twain.
+"Cuando las oportunidades no llamen a tu puerta, construye una". Milton Berle.
+"La vida es un viaje de autodescubrimiento, atrévete a explorar". Anaïs Nin.
+“Al cabo de los años he observado que la belleza, como la felicidad, es frecuente. No pasa un día en que no estemos, un instante, en el paraíso". Jorge Luis Borges.
+"La risa es el Sol que ahuyenta el invierno del rostro humano". Victor Hugo.
+"La felicidad es amor, no otra cosa. El que sabe amar es feliz". Hermann Hesse.
+“El futuro pertenece a quienes creen en la belleza de sus sueños". Eleanor Roosevelt.
+"Un día sin reír es un día perdido". Charles Chaplin.
+"La vida es como el jazz… es mucho mejor si es improvisada". George Gershwin.
+“La vida es la constante sorpresa de saber que existo". R. Tagore.
+"Los sabios son los que buscan la sabiduría; los necios piensan haberla encontrado". Napoleón.
+"No lastimes a los demás con lo que te causa dolor a ti mismo". Buda.
+"Recuerda que la felicidad no depende de quién eres o qué tienes; depende únicamente de lo que piensas". Dale Carnegie.
+"Un hombre que no se alimenta de sus sueños envejece pronto". William Shakespeare.
+"El pesimista se queja del viento; el optimista espera que cambie; el realista ajusta las velas". William George Ward.
+“Cuando las cosas se ponen difíciles, lo duro es ponerse en marcha". Joseph Kennedy.
+"La vida no es justa, es apenas más justa que la muerte, eso es todo". William Goldman.
+"Amar y sufrir es, a la larga, la única forma de vivir con plenitud y dignidad". Gregorio Marañón.
+"La vida no es siempre una cuestión de tener buenas cartas, sino, a veces, de jugar bien una mala mano". Jack London.
+"Es curioso que la vida, cuanto más vacía, más pesa". León Daudí.
+"Me entenderás… cuando te duela el alma como a mí". Frida Kahlo.
+“La vida no es sino una continua sucesión de oportunidades para sobrevivir". Gabriel García Márquez.
+“Si el hombre no ha descubierto nada por lo que morir, no es digno de vivir". Martin Luther King.
+"La experiencia no es lo que te ocurre, es lo que haces con lo que te ocurre". Aldous Huxley.
+"La vida no va de encontrarse a uno mismo, sino de crearse a uno mismo". George Bernard Shaw.
+"En la vida hay algo peor que el fracaso: el no haber intentado nada". Franklin D. Roosvelt.
+"La peor lucha es la que no se hace". Karl Marx.
+"Perder el tiempo que disfruto no es tiempo perdido". Marta Troly.
+"Aquellos que no se mueven no notan sus cadenas". Rosa Luxemburgo.
+"Deja de pensar en la vida y resuélvete a vivirla". Paulo Coelho.
+"No hay lugar donde ir salvo a cualquier parte, así que sigue caminando". Jack Kerouac.
+"Saber lo que hay que hacer elimina el miedo". Rosa Parks.
+"Sólo aquellos que se arriesgan a caer pueden conseguir grandes cosas". Robert F. Kennedy.
+"El éxito no es el final, el fracaso no es fatal: es el coraje por seguir lo que cuenta". Winston S. Churchill.
+"La vida es como una bicicleta: si quieres mantener el equilibrio, pedalea hacia delante". Albert Einstein.
+"Convierte siempre una situación negativa en una positiva". Michael Jordan.
+"Aprendí que no se puede dar marcha atrás, que la esencia de la vida es ir hacia adelante". Agatha Christie.
+"Un sólo pensamiento positivo por la mañana puede iluminar todo un día". Dalai Lama.
+"Con el nuevo día llega nueva fuerza y nuevos pensamientos". Eleanor Roosevelt.
+"Todos tus sueños se harán realidad si tienes el coraje de perseguirlos". Walt Disney.
+"Deja marcado en tu corazón que cada día es el mejor día del año". Ralph Waldo Emerson.
+"Que no te avergüencen tus fracasos. Aprende de ellos y vuelve a empezar". Richard Branson.
+"Recuerda que sólo porque tocaste fondo, no significa que tengas que quedarte allí". Robert Downey Jr.
+"La única diferencia entre el éxito y el fracaso es la capacidad de actuar". Alexander Graham Bell.
+"Si puedes cambiar tu mente, puedes cambiar el mundo". William James.
+"El fracaso es la oportunidad de comenzar de nuevo con más inteligencia". Henry Ford.
+
+
+
+
+
+
+34 frases y citas célebres sobre la educación
+---------------------------------------------
+
+"El sentido común no es resultado de la educación". Victor Hugo.
+"La educación es el arte de hacer visibles las cosas invisibles". Jean-François Lyotard.
+"No todos los lectores son líderes, pero todos los lectores se convierten en líderes". Harry S. Truman.
+"Quien se atreve a enseñar, nunca debe dejar de aprender". John Cotton Dana.
+"Por la ignorancia nos equivocamos, y por las equivocaciones aprendemos". Proverbio romano.
+"La educación es el vestido de gala para asistir a la fiesta de la vida". Miguel Rojas Sánchez.
+"A menudo damos a los niños respuestas que recordar en lugar de problemas a resolver". Roger Lewin.
+"La mejor arma contra la ignorancia es el estudio”. Rafael Escandón.
+"La enseñanza que deja huella no es la que se hace de cabeza a cabeza, sino de corazón a corazón". Howard G. Hendricks.
+"Educar la mente sin educar el corazón no es educación en absoluto". Aristóteles.
+"La educación es el único camino para escapar de la esclavitud mental". Frederick Douglass.
+"Un niño con falta de educación es un niño perdido". John F. Kennedy.
+"Un ser humano no alcanza sus cotas más altas hasta que está educado". Horace Mann.
+"La educación genera confianza. La confianza genera esperanza. La esperanza genera paz”. Confucio.
+"Antes de hablar, piensa; pero antes de pensar, lee". Frances Ann Lebowitz.
+"La sabiduría no es producto de la escolarización, sino de un intento a lo largo de la vida de adquirirlo". Albert Einstein.
+"El estudio sin deseo estropea la memoria y no retiene nada de lo que toma". Leonardo da Vinci.
+"La vida debe ser una incesante educación". Gustave Flaubert.
+"El conocimiento te dará la oportunidad de marcar una diferencia". Claire Fagin.
+"Toda vida es una constante educación". Eleanor Roosevelt.
+"Las plantas las endereza el cultivo; a los hombres, la educación". J.J. Rousseau.
+"La clave de la educación no es enseñar, es despertar". Ernest Renan.
+"La educación es el acto de despertar la curiosidad de la mente y alimentarla". Bob Dylan.
+"La educación es el cimiento sobre el cual construimos nuestro futuro". Christine Gregoire.
+"La educación es el proceso en el que descubrimos que, aprendiendo, aprendemos a aprender". José Saramago.
+"La educación no es preparación para la vida; la educación es la vida en sí misma". John Dewey.
+“Pensar es fácil, actuar es difícil, y poner los pensamientos de uno mismo en acción es lo más difícil del mundo”. Goethe.
+"Debes de estar dispuesto a ser un principiante cada una de tus mañanas". Meister Eckhart.
+"Enseñar es aprender dos veces". Joseph Joubert.
+"La educación es el arma más poderosa que puedes usar para cambiar el mundo". Nelson Mandela.
+"Los niños tienen que ser enseñados sobre cómo pensar, no qué pensar". Margaret Mead.
+"Vivir sin filosofar es, propiamente, tener los ojos cerrados, sin tratar de abrirlos jamás". René Descartes.
+"Una inversión en conocimiento paga el mejor interés”. Benjamin Franklin.
+"Siempre que enseñes, enseña a la vez a dudar de lo que enseñas". José Ortega y Gasset.
+
+
+
+
+
+37 frases célebres de amor
+--------------------------
+
+"El amor es el anhelo de salir de uno mismo". Charles Baudelaire.
+"Las cartas de amor se empiezan sin saber lo que se va a decir y se terminan sin saber lo que se ha dicho". Jean-Jacques Rousseau.
+"Ven a dormir conmigo: no haremos el amor, él nos lo hará". Julio Cortázar.
+"No amas a alguien porque sea perfecto, lo amas a pesar de que no lo sea". Jodie Picoult
+"Verás, hasta que te conocí, sólo había experimentado el deseo. El amor, nunca". Pierre Choderlos de Laclos.
+"Te quiero no por quien eres, sino por quien soy cuando estoy contigo”. Gabriel García Márquez.
+"El amor no tiene cura, pero es la única cura para todos los males". Leonard Cohen.
+"Escoge una persona que te mire como si fueses magia". Frida Kahlo.
+"Temer al amor es temer a la vida, y los que temen a la vida ya están medio muertos". Bertrand Russell.
+"Sabes que estás enamorado cuando no quieres acostarte porque la realidad es por fin mejor que tus sueños". Dr. Seuss.
+"Yo me enamoré de sus demonios. Ella, de mi oscuridad. Éramos el infierno perfecto". Mario Benedetti.
+"El amor es el deseo de encontrar a la mitad perdida de nosotros mismos". Milan Kundera.
+"La raíz de todas las pasiones es el amor. De él nace la tristeza, el gozo, la alegría y la desesperación". Lope de Vega.
+"El amor es invisible y entra y sale por donde quiere sin que nadie le pida cuenta de sus hechos". Miguel de Cervantes.
+"Hay amores tan bellos que justifican todas las locuras que hacen cometer". Plutarco.
+"Ni la ausencia ni el tiempo son nada cuando se ama". Alfred de Musset.
+"El amor es como la música, la pintura, los libros… no se busca, se encuentra". Miguel de Cervantes.
+"El amor de los jóvenes en verdad no está en su corazón, sino más bien en sus ojos". William Shakespeare.
+"Hay besos que en los labios dejan huellas como un campo de sol entre dos hielos". Gabriela Mistral.
+"El amor es la alegría de los buenos, la reflexión de los sabios, el asombro de los incrédulos". Platón.
+"Lo que se hace por amor está más allá del bien y del mal". Friedrich Nietzsche.
+"Si tuviera que volver a comenzar mi vida, intentaría encontrarte mucho antes”. Antoine de Saint-Exupéry.
+"La vida es la flor de la que el amor es la miel". Victor Hugo.
+"El amor es mejor maestro que el deber". Albert Einstein.
+"El amor, por no tener geografía, no conoce límites". Truman Capote.
+"El amor es una flor que debes dejar crecer". John Lennon.
+"El crimen del amor es el olvido". Maurice Chevalier.
+"Amamos porque esa es la única gran aventura". Nikki Giovanni.
+"El amor es la poesía de los sentidos". Honoré de Balzac.
+"Amar no es mirarse el uno al otro; es mirar juntos en la misma dirección". Antoine de Saint-Exupéry.
+"El amor conquista todas las cosas. Démosle paso al amor". Virgilio.
+"La medida del amor es amar sin medida". San Agustín.
+"Quiero llenar mi boca con tu nombre". Pablo Neruda.
+"El amor intenso no mide, sino que simplemente da". Teresa de Calcuta.
+"Si no tardas mucho, te espero toda la vida". Oscar Wilde.
+"El amor verdadero es el que no atosiga, no aísla, no rechaza, no persigue, solamente acepta". Antonio Gala.
+"Haz el amor y no la guerra". John Lenon.
+
+
+
+
+27 frases célebres de filósofos
+-------------------------------
+
+"Pienso, luego existo". René Descartes.
+"El conocimiento es poder". Francis Bacon.
+"El fin último de la vida es la felicidad". Aristóteles.
+"La vida sin examen no merece ser vivida". Sócrates.
+"La duda es el origen de la sabiduría". René Descartes.
+"El hombre es la medida de todas las cosas". Protágoras.
+"No hay nada permanente excepto el cambio". Heráclito.
+"Inteligencia: conócete, acéptate, supérate". San Agustín.
+"La ignorancia, la raíz y el tallo de todos los males". Platón.
+"En el estudio no existe la saciedad". Erasmo de Rotterdam.
+"La vida es sólo la muerte aplazada". Arthur Schopenhauer.
+"Lo que no te mata, te hace más fuerte". Friedrich Nietzsche.
+"No hay viento favorable para quien no sabe a dónde va". Séneca.
+"Nuestro carácter es el resultado de nuestra conducta". Aristóteles.
+"Nada es suficiente para quien considera poco como suficiente". Epicuro.
+"La verdadera sabiduría está en reconocer la propia ignorancia". Sócrates.
+"La verdadera riqueza no consiste en tener muchas posesiones, sino en tener pocos deseos". Epicteto.
+"No es lo que te ocurre, sino cómo reaccionas, eso es lo que importa". Epicteto.
+"El amor es un acto de infinita paciencia". Jean-Paul Sartre.
+"Todo hombre es un poeta cuando está enamorado". Platón.
+"La amistad es animal de compañía, no de rebaño". Plutarco.
+"La felicidad es un ideal de la imaginación". Immanuel Kant.
+"La verdadera felicidad consiste en hacer el bien". Aristóteles.
+"El amor no tiene edad, siempre está naciendo". Blaise Pascal.
+"No dejes crecer la hierba en el camino de la amistad". Sócrates.
+"De todas las posesiones, la amistad es la más valiosa". Heródoto.
+"La amistad duplica las alegrías y divide las angustias por la mitad". Francis Bacon.
+
+
