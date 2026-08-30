@@ -35,8 +35,8 @@
             <div class="container">
                 <div class="carousel-caption text-right mb-5 text-white">
                     <h1 class="display-4">Para pensar</h1>
-                    <p class="lead"><?php echo $frase["texto_frases"];  ?></p>
-                    <p class="lead"><?php echo $frase["autor_frases"];  ?></p>
+                    <p class="lead"><?= $frase["texto_frases"]; ?></p>
+                    <p class="lead"><?= $frase["autor_frases"]; ?></p>
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ require_once "conexion.php";
 
 class ModeloPrimitiva{
 
-        
     // Obtenemos el Ultimo premio obtenido.
     static public function mdlObtenerUltPremio(string $tabla, string $item, int $valor){
 
@@ -59,5 +58,87 @@ class ModeloPrimitiva{
 
     }
 
+
+    static public function funcFechaDiferencia(string $fecha_i, string $fecha_f): string {
+
+        $datetime1 = date_create($fecha_i);
+        $datetime2 = date_create($fecha_f);
+        $interval = date_diff($datetime1, $datetime2);
+    
+        return $interval->format('%R%a días');
+    }
+
+
+    static public function funcSeparaApuestas(array $registro): array {
+
+        // Inicializamos el array para almacenar las apuestas separadas
+        $apuestasSeparadas = [];
+
+        // Comprobar que nos llega algo
+        if (empty($registro)) {
+            return $apuestasSeparadas; // Retornar un array vacío si no hay datos
+        }
+
+        $miApuesta = new ControladorPrimitiva();
+
+        // Inicializamos las propiedades del objeto con los datos del registro
+        $miApuesta ->mis_apuestas = [];
+
+        // Fecha apuesta
+        $miApuesta -> reg_fecha = $registro['fecha'];
+
+        // Primitiva Fija Semanal
+        $miApuesta -> reg_numfijo = $registro['numfijo'];
+        $miApuesta -> reg_numfijor = $registro['numfijor'];
+
+        // Primitiva Expecial
+        $miApuesta -> reg_numvari = $registro['numvari'];
+        $miApuesta -> reg_numvarir = $registro['numvarir'];
+
+        // Euromillón
+        $miApuesta -> reg_euromillon = $registro['euromillon'];
+        $miApuesta -> reg_euroruno = $registro['euroruno'];
+        $miApuesta -> reg_eurordos = $registro['eurordos'];
+
+        // Otras apuestas.
+        $miApuesta -> reg_otros = $registro['otros'];
+
+        // Euromillón segundo
+        $miApuesta -> reg_euromillon1 = $registro['euromillon1'];
+        $miApuesta -> reg_euroruno1 = $registro['euroruno1'];
+        $miApuesta -> reg_eurordos1 = $registro['eurordos1'];
+
+        // Primitiva Expecial segunda
+        $miApuesta -> reg_numvari1 = $registro['numvari1'];
+        $miApuesta -> reg_numvari1r = $registro['numvari1r'];
+
+        // Premio.
+        $miApuesta -> reg_premio = $registro['premio'];
+
+        // Euromillón: sólo viernes, sólo martes, semanal.
+        $miApuesta -> reg_marvie = $registro['marvie'];
+
+        // Primitiva: desde el 11/07/2022 pueden ser tres días de apuestas (lunes, martes y jueves)
+        $miApuesta -> reg_primitresdias     = $registro['primitresdias'];
+        $miApuesta -> reg_primivaritresdias = $registro['primivaritresdias'];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return $apuestasSeparadas;
+
+    }
 
 }

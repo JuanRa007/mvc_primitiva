@@ -2,7 +2,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-0">
     <div class="container">
         <a href="index.php" class="navbar-brand p-0">
-            <img class="col-logo" src="<?php echo $blog["dominio"];?>vistas/img/nuestrasapuestas-logo.svg" alt="Nuestras Apuestas" />
+            <img class="col-logo" src="<?= $blog["dominio"]; ?>vistas/img/nuestrasapuestas-logo.svg" alt="Nuestras Apuestas" />
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -1,6 +1,7 @@
 <?php
 
 # Controladores
+require_once "controladores/primitiva.controlador.php";
 require_once "controladores/plantilla.controlador.php";
 require_once "controladores/blog.controlador.php";
 
