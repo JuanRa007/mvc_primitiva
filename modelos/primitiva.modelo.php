@@ -68,6 +68,50 @@ class ModeloPrimitiva{
         return $interval->format('%R%a días');
     }
 
+    static public function funcGeneraTextoFecha(array $array_fecha, string $tipo_apuesta): string {
+
+        // Inicializamos.
+        $texto = "";
+        $separador0 = " y ";
+        $separador1 = ", ";
+        $separador = "";
+        $indicador = false;
+
+        // Cuántas fechas nos llegan
+        if ($tipo_apuesta != 'lotnavidad') {
+            $tot_fechas = sizeof($array_fecha);
+        } else {
+            $tot_fechas = 1;
+        }
+
+        // Si es una apuesta especial, la fecha es de un día a otro.
+        if ($tipo_apuesta == 'bonoloto') {
+            $separador = " al ";
+        } else {
+            $separador = $separador0;
+        }
+
+        if (is_array($array_fecha)) {
+            foreach ($array_fecha as $indice => $valor) {
+            if (!$texto) {
+                $texto = $valor;
+            } else {
+                if ($tot_fechas > 2 && $indicador == false) {
+                $separador = $separador1;
+                $indicador = true;
+                } else {
+                $separador = $separador0;
+                }
+                $texto = $texto . $separador . $valor;
+            }
+            }
+        } else {
+            $texto = $array_fecha;
+        }
+    
+        return $texto;
+    }
+
 
     static public function funcSeparaApuestas(array $registro): array {
 
@@ -123,15 +167,20 @@ class ModeloPrimitiva{
         $miApuesta -> reg_primivaritresdias = $registro['primivaritresdias'];
 
 
+        // PRIMTIVA FIJA SEMANAL
+        $apuestasSeparadas['primifija'] = $miApuesta ->prepara_primtiva_fija();
 
+        // PRIMITIVA ESPECIAL
+        $mi_apuesta =  $miApuesta ->prepara_primtiva_vari();
+        if (!empty($mi_apuesta)) {
+            $apuestasSeparadas['primisema'] = $mi_apuesta;
+        }
 
-
-
-
-
-
-
-
+        // EUROMILLÓN
+        $mi_apuesta =  $miApuesta ->prepara_euromillones_vari();
+        if (!empty($mi_apuesta)) {
+            $apuestasSeparadas['euromvari'] = $mi_apuesta;
+        }
 
 
 

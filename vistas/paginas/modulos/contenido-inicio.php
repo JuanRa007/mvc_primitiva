@@ -13,9 +13,7 @@ $diferencia_dias = ModeloPrimitiva::funcFechaDiferencia($ultApuesta['fecha'], $f
 
 // Descomponemos el resgitro de apuestas según sus resultados.
 $detaApuestas = modeloPrimitiva::funcSeparaApuestas($ultApuesta);
-
-
-
+// echo '<pre>'; print_r($detaApuestas); echo '</pre>';
 
 ?>
 
@@ -35,54 +33,120 @@ $detaApuestas = modeloPrimitiva::funcSeparaApuestas($ultApuesta);
 
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2 pt-5">
+
+      <?php foreach ($detaApuestas as $tipo_apuesta => $mi_apuesta) { 
+        
+        $apuesta = $mi_apuesta[0];
+        // Los avisos no se procesan.
+        if ($tipo_apuesta == 'aviso') {
+          continue;
+        }
+        // Los desconocidos se vuelcan a la consola.
+        if ($tipo_apuesta == 'desconocido') {
+          $desconocido = "";
+          $desconocido = '<script>';
+          $desconocido .= 'console.log("DESCONOCIDO:");';
+          $desconocido .= 'console.log("Título: "' . $apuesta["titulo"] . ');';
+          $desconocido .= 'console.log("Subtítulo: ["' . $apuesta["subtitulo"] . ');';
+          $desconocido .= '</script>';
+          continue;
+        }
+        ?>
+
       <div class="col mb-4">
-
-        <!-- ======= INICIO ======= -->
         <div class="card text-black bg-light shadow">
-
-          <img src="<?= $blog["dominio"]; ?>/vistas/img/b_primitiva.png" class="card-img-top" alt="Primitiva Fija Semanal">
-
+          <img src="<?= $blog["dominio"]; ?>/vistas/img/<?= $apuesta["imagen"] ?>" class="card-img-top" alt="<?= $apuesta["titulo"] ?>">
           <div class="card-body">
               <h3 class="card-title">
-                <span class="icon-PrimitivaAJ"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>
-                Primitiva Fija Semanal              </h3>
+                <span class="<?= $apuesta["icono"] ?>"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>
+                <?= $apuesta["titulo"] ?>
+              </h3>
               <h6 class="card-subtitle mb-2 text-muted mb-4">
-                Lunes, Jueves y Sábado              </h6>
+                <?= $apuesta["subtitulo"] ?>
+              </h6>
               <hr />
               <div class="alert alert-success text-center" role="alert">
-                Sorteo: <span class="badge">24/08/2026, 27/08/2026 y 29/08/2026</span>
+                Sorteo: <span class="badge"><?= ModeloPrimitiva::funcGeneraTextoFecha($apuesta["fechas"],$tipo_apuesta) ?></span>
               </div>
-              <div class="d-flex justify-content-center">
-                <ul class="list-inline text-monospace">
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">03</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">13</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">23</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">32</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">33</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">43</li>
-                  <li class="list-inline-item p-1 mb-1 bg-warning rounded-circle shadow">9</li>
-                </ul>
-              </div>
-              <div class="d-flex justify-content-center">
-                <ul class="list-inline text-monospace">
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">09</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">17</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">19</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">29</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">39</li>
-                  <li class="list-inline-item p-1 mb-1 bg-success rounded-circle shadow">49</li>
-                  <li class="list-inline-item p-1 mb-1 bg-warning rounded-circle shadow">9</li>
-                </ul>
-              </div>
-              <!-- Submensaje -->
+
+              <?php 
+              //
+              // Presentación Para DÉCIMOS: Navidad, Once.
+              //
+              if ($tipo_apuesta == 'lotnavidad' || $tipo_apuesta == 'laonce') {
+
+                // TODO: Presentación para DÉCIMOS.
+                // Obtenemos la serie y la fracción.
+                $serie_fracc = "";    // $serie_fracc = explode('-', $apuesta["reintegros"]);
+                $decimo_frontal = ""; // $decimo_frontal = obtener_nombre_fichero_decimo($apuesta["nom_fich"], $tipo_apuesta, true, false);
+                $decimo_trasera = ""; // $decimo_trasera = obtener_nombre_fichero_decimo($apuesta["nom_fich"], $tipo_apuesta, false, false);
+              ?>
+              <!-- Presentación para DÉCIMOS 
+                <div class="alert text-center">
+                  <h1><?= $apuesta["numeros"] ?></h1>
+                  <h5>Serie: <span class="badge"><?= $serie_fracc[0] ?></span></h5>
+                  <?php if ($tipo_apuesta !== 'laonce') {
+                  ?>
+                    <h5>Fracción: <span class="badge"><?= $serie_fracc[1] ?></span></h5>
+                  <?php } ?>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <a href="<?= $decimo_frontal ?>" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                    <img src="<?= $decimo_frontal ?>" class="img-fluid" alt="">
+                  </a>
+                  <a href="<?= $decimo_trasera ?>" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                    <img src="<?= $decimo_trasera ?>" class="img-fluid" alt="">
+                  </a>
+                </div>
+              -->
+              <?php
+              } else {
+                /* Inicio Contenido de la tarjeta: números */
+                $ind_rei = 0;
+                $numeros_sorteo = $apuesta["numeros"];
+                $reintegros_sorteo = $apuesta["reintegros"];
+                foreach ($numeros_sorteo as $indice => $numeros){
+              ?>
+                  <div class="d-flex justify-content-center">
+                    <ul class="list-inline text-monospace">
+                      <?php
+                      foreach ($numeros as $i => $num) {
+                      ?>
+                        <li class="list-inline-item p-1 mb-1 <?= "bg-" . $apuesta["color"] ?> rounded-circle shadow"><?= $num ?></li>
+                      <?php
+                      }
+                      if (strpos($reintegros_sorteo[$ind_rei], "-") > 0) {
+                        $rei_parcial = explode("-", $reintegros_sorteo[$ind_rei]);
+                      ?>
+                        <li class="list-inline-item p-1 mb-1 bg-warning rounded-circle shadow"><?= $rei_parcial[0]; ?></li>
+                        <li class="list-inline-item p-1 mb-1 bg-warning rounded-circle shadow"><?= $rei_parcial[1]; ?></li>
+                      <?php
+                      } else {
+                      ?>
+                        <li class="list-inline-item p-1 mb-1 bg-warning rounded-circle shadow"><?= $reintegros_sorteo[$ind_rei] ?></li>
+                      <?php
+                      }
+                      ?>
+                    </ul>
+                  </div>
+              <?php
+                  $ind_rei += 1;
+                }
+                /* Fin Contenido de la tarjeta: números */
+              }   // if ($tipo_apuesta) 
+              ?>
               <p class="card-text">
-                <small class="text-muted">Actualizado hace <?= $diferencia_dias ?> días.</small>
+                <small class="text-muted">Actualizado hace <?= $diferencia_dias ?>.</small>
               </p>
             </div>
           </div>
+        </div>
         <!-- ======= FINAL ======= -->
+      <?php
+      }
+      ?>
+      <!-- ======= FINAL ======= -->
 
-      </div>
     </div>
   </div>
 </section>

@@ -23,11 +23,13 @@ class ControladorPrimitiva{
      public string $reg_marvie;
      public string $reg_primitresdias;
      public string $reg_primivaritresdias;
+     public string $reg_euromillonEspecial;
 
 
     // Constructor de la clase
      public function __construct() {
-        // Inicializar propiedades de la clase
+
+     // Inicializar propiedades de la clase
         $this->mis_apuestas = [];
         $this->reg_fecha = '';
         $this->reg_numfijo = '';
@@ -47,7 +49,9 @@ class ControladorPrimitiva{
         $this->reg_marvie = '';
         $this->reg_primitresdias = '';
         $this->reg_primivaritresdias = '';
-    }
+        $this->reg_euromillonEspecial = '';
+
+   }
 
     // Devuelve un array con las fechas de los sorteos según el tipo de apuesta y la fecha indicada.
     private function obtener_fecha_sorteo(string $tipo, string $fecha) {
@@ -116,6 +120,69 @@ class ControladorPrimitiva{
                 $fechas_proceso[] = $fecha_new;
                 break;
 
+            case 'diamar':
+                if ($diasemana < 2) {
+                    // Incrementamos el día hasta ser martes.
+                    $diasumres = (2 - $diasemana);
+                    $opesumres = "+";
+                } elseif ($diasemana > 2) {
+                    // Decrementamos el día hasta ser martes.
+                    $diasumres = ($diasemana - 2);
+                    $opesumres = "-";
+                }
+                if ($diasumres) {
+                    $fecha_new = date("d/m/Y", strtotime($fecha . $opesumres . $diasumres . " days"));
+                } else {
+                    $fecha_new = strtotime($fecha);
+                    $fecha_new = date( 'd/m/Y', $fecha_new);
+                }
+                $fechas_proceso[] = $fecha_new;
+                break;
+
+            case 'diavie':
+                if ($diasemana < 5) {
+                    // Incrementamos el día hasta ser viernes.
+                    $diasumres = (5 - $diasemana);
+                    $opesumres = "+";
+                } elseif ($diasemana > 5) {
+                    // Decrementamos el día hasta ser viernes.
+                    $diasumres = ($diasemana - 5);
+                    $opesumres = "-";
+                }
+                if ($diasumres) {
+                    $fecha_new = date("d/m/Y", strtotime($fecha . $opesumres . $diasumres . " days"));
+                } else {
+                    $fecha_new = strtotime($fecha);
+                    $fecha_new = date( 'd/m/Y', $fecha_new);
+                }
+                $fechas_proceso[] = $fecha_new;
+                break;
+
+            case 'marvie':
+                if ($diasemana < 2) {
+                    // Incrementamos el día hasta ser martes.
+                    $diasumres = (2 - $diasemana);
+                    $opesumres = "+";
+                } elseif ($diasemana > 2) {
+                    // Decrementamos el día hasta ser martes.
+                    $diasumres = ($diasemana - 2);
+                    $opesumres = "-";
+                }
+                if ($diasumres) {
+                    $fecha_new = date("d/m/Y", strtotime($fecha . $opesumres . $diasumres . " days"));
+                } else {
+                    $fecha_new = strtotime($fecha);
+                    $fecha_new = date( 'd/m/Y', $fecha_new);    
+                }
+                $fechas_proceso[] = $fecha_new;
+
+                // Ahora el viernes siguiente.
+                $diasumres += 3;
+                $opesumres = "+";
+                $fecha_new = date("d/m/Y", strtotime($fecha . $opesumres . $diasumres . " days"));
+                $fechas_proceso[] = $fecha_new;
+                break;
+
             default:
                 break;
         }
@@ -144,6 +211,30 @@ class ControladorPrimitiva{
 
     }
 
+    // Funcion para determinar fechas según MARVIE.
+    private function obtener_valor_marvie(){
+
+        // Inicializar variables.
+        $tipo_fecha = "";
+
+        switch ($this->reg_marvie) {
+            case 'M':
+                $tipo_fecha = "diamar";                 // "Martes"
+                break;
+            case 'V':
+                $tipo_fecha = "diavie";                 // "Viernes"
+                break;
+            case 'T':
+                $tipo_fecha = "marvie";                 // "Martes y Viernes"
+                break;
+            default:
+                $tipo_fecha = "marvie";                 // "Martes y Viernes"
+                break;
+        }
+
+        return $tipo_fecha;
+
+    }
 
     // Devuelve un array con las apuestas en la PRIMITIVA FIJA SEMANAL.
     public function prepara_primtiva_fija(){
@@ -185,6 +276,139 @@ class ControladorPrimitiva{
     }
 
 
+    // Devuelve un array con las apuestas en la PRIMITIVA POSIBLE.
+    public function prepara_primtiva_vari(){
 
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+
+        // Viene el primer bloque de primitva especial.
+        if($this->reg_numvari){
+
+            // Buscar el jueves y sábado de la fecha indicada, o lunes, jueves y sábado.
+            if($this->reg_primivaritresdias){
+                $fecha_juesab = $this->obtener_fecha_sorteo("lunsab", $this->reg_fecha);
+                $fecha_juesab_lit = "Lunes, Jueves y Sábado";
+            }else{
+                $fecha_juesab = $this->obtener_fecha_sorteo("juesab", $this->reg_fecha);
+                $fecha_juesab_lit = "Jueves y Sábado";
+            }   
+
+            // Guardamos el reintegro.
+            $reintegros[] = $this->reg_numvarir;
+
+
+            // Puede haber otra apuesta en el campo correspondiente.
+            if($this->reg_numvari1){
+                $this->reg_numvari = $this->reg_numvari . " / " . $this->reg_numvari1;
+                $reintegros[] = $this->reg_numvari1r;
+            }
+
+            $num_sorteo = $this->obtener_numeros_sorteo($this->reg_numvari);
+
+            $apuesta_fija[] = [
+            'titulo'     => "Primitiva Semanal",
+            'subtitulo'  => $fecha_juesab_lit,
+            'color'      => "success",
+            'fechas'     => $fecha_juesab,
+            'imagen'     => "b_primitiva.png",
+            'icono'      => "icon-PrimitivaAJ",
+            'numeros'    => $num_sorteo,
+            'reintegros' => $reintegros,
+            'premio'     => ""
+            ];
+
+        }
+
+        return $apuesta_fija;
     
+    }   
+    
+    // Devuelve un array con las apuestas en el EUROMILLÓN.
+    public function prepara_euromillones_vari(){
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+        $euromillon_pro = "";
+
+        // Mensajes por defecto.
+        $strtitulo = "Euromillones";
+        $strsubtitulo = "Martes y Viernes";
+
+        // Es una apuesta especial de Euromillón.
+        if($this->reg_euromillonEspecial){
+            $strtitulo = "Euromillones Especial";
+        }
+
+        // Controlar "marvie"
+        $tipo_fecha = $this->obtener_valor_marvie();
+
+        // Nos llegan dos apuestas de Euromillón.
+        if($this->reg_euromillon){
+
+            $fecha_marvie = $this->obtener_fecha_sorteo($tipo_fecha, $this->reg_fecha);
+
+
+            $euromillon_pro =  $this->reg_euromillon;
+            $euroruno = number_format($this->reg_euroruno, 0, ',', '.');
+            if (strlen($euroruno) == 1) {
+                $euroruno = '0' . $euroruno;
+            }
+            $eurordos = number_format($this->reg_eurordos, 0, ',', '.');
+            if (strlen($eurordos) == 1) {
+                $eurordos = '0' . $eurordos;
+            }
+            $reintegros[] = $euroruno . " - " . $eurordos;
+
+            // Segundo grupo de apuestas de Euromillón.
+            if($this->reg_euromillon1){
+                $euromillon_pro .= " / " . $this->reg_euromillon1;
+                $euroruno1 = number_format($this->reg_euroruno1, 0, ',', '.');
+                if (strlen($euroruno1) == 1) {
+                    $euroruno1 = '0' . $euroruno1;
+                }
+                $eurordos1 = number_format($this->reg_eurordos1, 0, ',', '.');
+                if (strlen($eurordos1) == 1) {
+                    $eurordos1 = '0' . $eurordos1;
+                }
+                $reintegros[] = $euroruno1 . " - " . $eurordos1;
+            } 
+
+            $num_sorteo = $this->obtener_numeros_sorteo($euromillon_pro);
+
+            $apuesta_fija[] = [
+                'titulo'     => $strtitulo,
+                'subtitulo'  => $strsubtitulo,
+                'color'      => "primary",
+                'fechas'     => $fecha_marvie,
+                'imagen'     => "b_euromillones.png",
+                'icono'      => "icon-EuromillonesAJ",
+                'numeros'    => $num_sorteo,
+                'reintegros' => $reintegros,
+                'premio'     => ""
+            ]; 
+
+        }
+
+        return $apuesta_fija;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
