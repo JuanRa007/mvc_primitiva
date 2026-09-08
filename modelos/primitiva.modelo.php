@@ -182,7 +182,13 @@ class ModeloPrimitiva{
             $apuestasSeparadas['euromvari'] = $mi_apuesta;
         }
 
-
+        // OTROS
+        $mi_apuesta =  $miApuesta ->prepara_bloque_otros();
+        if (!empty($mi_apuesta)) {
+            foreach ($mi_apuesta as $otro_tipo => $otro_apuesta) {
+                $mis_apuestas[$otro_tipo] = $otro_apuesta;
+            }
+        }
 
 
 

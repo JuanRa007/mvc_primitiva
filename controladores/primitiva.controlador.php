@@ -394,18 +394,113 @@ class ControladorPrimitiva{
 
     }
 
+    // Devuelve un array con las apuestas en OTROS.
+    public function prepara_bloque_otros(){
+        
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+        // Separador.
+        $text_separador = "--------";
+
+        // Nos llegan apuestas en el campo "otros".
+        if($this->reg_otros){ 
+
+            // Trabajamos con una copia.
+            $otros_bak = $this->reg_otros;
+
+            // Separamos por líneas.
+            while (strlen($otros_bak)){
+      
+                // Nos quedamos con la parte hasta $text_separador.
+                $pos_final = stripos($otros_bak, $text_separador);
+                if ($pos_final !== false) {
+                    $strmirar = trim(substr($otros_bak, 0, $pos_final));
+                    $otros_bak = trim(substr($otros_bak, $pos_final + strlen($text_separador)));
+                } else {
+                    $strmirar = trim($otros_bak);
+                    $otros_bak = "";
+                }
+
+
+                // Buscamos Euromillones.
+                //=======================
+                $pos1 = stripos($strmirar, "Euromillón");
+                if ($pos1 !== false){
+
+                }   // Fin EUROMILLONES
+
+
+                // Buscamos Décimo.
+                //=======================
+                $pos1 = strpos($strmirar, "Décimo");      // Usamos STRPOS para distinguir mayúsculas y minúsculas.
+                if ($pos1 !== false){
+        
+                }   // Fin DÉCIMO
+
+
+                // Buscamos Bonoloto.
+                //=======================
+                $pos1 = stripos($strmirar, "Bonoloto");
+                if ($pos1 !== false) {
+
+                }  // Fin BONOLOTO
+
+
+                // Buscamos El Gordo.
+                //=======================
+                $pos1 = stripos($strmirar, "El Gordo");
+                if ($pos1 !== false) {
+
+                }   // Fin EL GORDO
+
+
+                // Buscamos Once.
+                //=======================
+                $pos1 = stripos($strmirar, "Once");
+                if ($pos1 !== false) {
+
+
+                }   // Fin ONCE
+
+
+                // Buscamos Aviso.
+                //=======================
+                $pos1 = strpos($strmirar, "Aviso");      // Usamos STRPOS para distinguir mayúsculas y minúsculas.
+                if ($pos1 !== false) {
+
+                }   // Fin AVISO
 
 
 
+                // Buscamos PrimitivaE.
+                //=======================
+                $pos1 = stripos($strmirar, "PrimitivaE");
+                if ($pos1 !== false) {
+
+                }   // Fin PRIMITIVAE
 
 
+                // Buscamos PrimitivaT.
+                //=======================
+                $pos1 = stripos($strmirar, "PrimitivaT");
+                if ($pos1 !== false) {
+
+                }   // Fin PRIMITIVAT
 
 
+                // Buscamos Desconocido
+                //=======================
+                if ($strmirar) {
 
+                }   // Fin DESCONOCIDO
 
+            }   // Fin while
 
+        }   // Fin if($this->reg_otros)
 
+        return $apuesta_fija;
 
+    }
 
 
 
