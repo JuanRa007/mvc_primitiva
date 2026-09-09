@@ -24,6 +24,7 @@ class ControladorPrimitiva{
      public string $reg_primitresdias;
      public string $reg_primivaritresdias;
      public string $reg_euromillonEspecial;
+     public string $reg_otrosTroceados;
 
 
     // Constructor de la clase
@@ -50,7 +51,7 @@ class ControladorPrimitiva{
         $this->reg_primitresdias = '';
         $this->reg_primivaritresdias = '';
         $this->reg_euromillonEspecial = '';
-
+        $this->reg_otrosTroceados = '';
    }
 
     // Devuelve un array con las fechas de los sorteos según el tipo de apuesta y la fecha indicada.
@@ -348,7 +349,6 @@ class ControladorPrimitiva{
 
             $fecha_marvie = $this->obtener_fecha_sorteo($tipo_fecha, $this->reg_fecha);
 
-
             $euromillon_pro =  $this->reg_euromillon;
             $euroruno = number_format($this->reg_euroruno, 0, ',', '.');
             if (strlen($euroruno) == 1) {
@@ -410,7 +410,10 @@ class ControladorPrimitiva{
 
             // Separamos por líneas.
             while (strlen($otros_bak)){
-      
+
+                // Inicializamos la variable a tratar.
+                $strmirar = "";
+
                 // Nos quedamos con la parte hasta $text_separador.
                 $pos_final = stripos($otros_bak, $text_separador);
                 if ($pos_final !== false) {
@@ -420,7 +423,6 @@ class ControladorPrimitiva{
                     $strmirar = trim($otros_bak);
                     $otros_bak = "";
                 }
-
 
                 // Buscamos Euromillones.
                 //=======================
@@ -468,6 +470,16 @@ class ControladorPrimitiva{
                 $pos1 = strpos($strmirar, "Aviso");      // Usamos STRPOS para distinguir mayúsculas y minúsculas.
                 if ($pos1 !== false) {
 
+                    // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+
+                    // Obtenemos los datos del Aviso (sólo texto).
+                    $mi_apuesta = $this->prepara_otros_aviso();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['aviso'] = $mi_apuesta;
+                    }
+
                 }   // Fin AVISO
 
 
@@ -502,8 +514,53 @@ class ControladorPrimitiva{
 
     }
 
+    // Prepara el bloque de aviso en OTROS.
+    public function prepara_otros_aviso(){
 
+         // Incializar variable a devolver.
+        $apuesta_fija = [];
 
+        // Obtenemos la fecha del sorteo.
+        $fecha_aviso = strtotime($this->reg_fecha);
+        $fecha_aviso = date( 'd/m/Y', $fecha_aviso);
 
+        // Separamos el aviso en cabecera y mensaje.
+        $titulo_aviso = "Mensaje emitido el día: " . $fecha_aviso;
+        $mensaje_aviso = $this->prepara_texto_aviso();
+
+        // Agregamos el aviso al array de apuestas.
+        $apuesta_fija[] = [
+        'titulo'     => $titulo_aviso,
+        'subtitulo'  => $mensaje_aviso,
+        'color'      => "success",
+        'fechas'     => $fecha_aviso,
+        'imagen'     => "",
+        'icono'      => "",
+        'numeros'    => "",
+        'reintegros' => "",
+        'premio'     => ""
+        ];
+
+        return $apuesta_fija;
+   
+    }
+
+    // Prepara el texto del aviso en OTROS.
+    public function prepara_texto_aviso(){
+
+        // Inicializamos la variable a devolver.
+        $texto_aviso = "";
+
+        // Separamos el aviso en cabecera y mensaje.
+        $pos1 = strpos($this->reg_otrosTroceados, ":");      // Usamos STRPOS para distinguir mayúsculas y minúsculas.
+        if ($pos1 !== false) {
+            $texto_aviso = trim(substr($this->reg_otrosTroceados, $pos1 + strlen(":")));
+        }else{
+            $texto_aviso = trim($this->reg_otrosTroceados);
+        }
+
+        return $texto_aviso;
+    
+    }
 
 }

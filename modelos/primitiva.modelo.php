@@ -184,9 +184,11 @@ class ModeloPrimitiva{
 
         // OTROS
         $mi_apuesta =  $miApuesta ->prepara_bloque_otros();
+        //echo '<pre>'; print_r($mi_apuesta ); echo '</pre>';
+
         if (!empty($mi_apuesta)) {
             foreach ($mi_apuesta as $otro_tipo => $otro_apuesta) {
-                $mis_apuestas[$otro_tipo] = $otro_apuesta;
+                $apuestasSeparadas[$otro_tipo] = $otro_apuesta;
             }
         }
 
