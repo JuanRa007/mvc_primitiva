@@ -15,6 +15,15 @@ $diferencia_dias = ModeloPrimitiva::funcFechaDiferencia($ultApuesta['fecha'], $f
 $detaApuestas = modeloPrimitiva::funcSeparaApuestas($ultApuesta);
 // echo '<pre>'; print_r($detaApuestas); echo '</pre>';
 
+// Buscamos la existencia de algún aviso de interés.
+$tituloAvisos = "";
+$subtituloAvisos = "";
+foreach ($detaApuestas as $tipo_apuesta => $mi_apuesta) {
+  if ($tipo_apuesta == 'aviso') {
+    $tituloAvisos = $mi_apuesta[0]['titulo'];
+    $subtituloAvisos = $mi_apuesta[0]['subtitulo'];
+  }
+}
 ?>
 
 <section id="apuestas" class="bg-light pb-5">
@@ -32,11 +41,26 @@ $detaApuestas = modeloPrimitiva::funcSeparaApuestas($ultApuesta);
   </div>
 
   <div class="container">
+
+    <!-- Avisos de interés -->
+    <?php if ($tituloAvisos) { ?>
+      <div class="jumbotron">
+          <h1 class="display-6">AVISO:</h1>
+          <hr class="my-4">
+          <p class="h2 text-center"><?= $tituloAvisos ?></p>
+          <p class="h3"><?= $subtituloAvisos ?></p>
+      </div>
+    <?php
+    }
+    ?>
+
     <div class="row row-cols-1 row-cols-md-2 pt-5">
 
-      <?php foreach ($detaApuestas as $tipo_apuesta => $mi_apuesta) { 
+      <?php
+      foreach ($detaApuestas as $tipo_apuesta => $mi_apuesta) { 
         
         $apuesta = $mi_apuesta[0];
+
         // Los avisos no se procesan.
         if ($tipo_apuesta == 'aviso') {
           continue;
@@ -75,13 +99,18 @@ $detaApuestas = modeloPrimitiva::funcSeparaApuestas($ultApuesta);
               //
               if ($tipo_apuesta == 'lotnavidad' || $tipo_apuesta == 'laonce') {
 
+                echo 'SERIA<pre>'; print_r($apuesta); echo '</pre>';
+
+
                 // TODO: Presentación para DÉCIMOS.
                 // Obtenemos la serie y la fracción.
-                $serie_fracc = "";    // $serie_fracc = explode('-', $apuesta["reintegros"]);
+                $serie_fracc = ""; // explode('-', $apuesta["reintegros"]);
+
+                
                 $decimo_frontal = ""; // $decimo_frontal = obtener_nombre_fichero_decimo($apuesta["nom_fich"], $tipo_apuesta, true, false);
                 $decimo_trasera = ""; // $decimo_trasera = obtener_nombre_fichero_decimo($apuesta["nom_fich"], $tipo_apuesta, false, false);
               ?>
-              <!-- Presentación para DÉCIMOS 
+              <!-- Inicio Contenido de la tarjeta: DÉCIMO 
                 <div class="alert text-center">
                   <h1><?= $apuesta["numeros"] ?></h1>
                   <h5>Serie: <span class="badge"><?= $serie_fracc[0] ?></span></h5>
@@ -98,7 +127,7 @@ $detaApuestas = modeloPrimitiva::funcSeparaApuestas($ultApuesta);
                     <img src="<?= $decimo_trasera ?>" class="img-fluid" alt="">
                   </a>
                 </div>
-              -->
+              Fin Contenido de la tarjeta: DÉCIMO -->
               <?php
               } else {
                 /* Inicio Contenido de la tarjeta: números */

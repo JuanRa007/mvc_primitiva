@@ -437,6 +437,16 @@ class ControladorPrimitiva{
                 $pos1 = strpos($strmirar, "Décimo");      // Usamos STRPOS para distinguir mayúsculas y minúsculas.
                 if ($pos1 !== false){
         
+                     // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+
+                    // Obtenemos los datos del Décimo.
+                    $mi_apuesta = $this->prepara_otros_decimo();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['lotnavidad'] = $mi_apuesta;
+                    }
+
                 }   // Fin DÉCIMO
 
 
@@ -561,6 +571,109 @@ class ControladorPrimitiva{
 
         return $texto_aviso;
     
+    }
+
+    // Prepara el bloque de décimo en OTROS.
+    public function prepara_otros_decimo(){
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+
+        // Obtenemos la fecha del sorteo.
+        $fecha_fichero = strtotime($this->reg_fecha);
+        $fecha_fichero = date( 'd/m/Y', $fecha_fichero);
+
+        // Buscamos la fecha del sorteo en el texto.
+        $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
+
+        // Obtenemos el número del décimo.
+        $num_sorteo= $this->busca_numero_otrosTroceados($this->reg_otrosTroceados);
+
+        // Obtenemos el Serie y Fracción del décimo.
+        $reintegros = $this->busca_SerieFraccion_otrosTroceados($this->reg_otrosTroceados, true);
+
+
+        $apuesta_fija[] = [
+        'titulo'     => "Lotería Nacional",
+        'subtitulo'  => "Sorteo de Navidad",
+        'color'      => "info",
+        'fechas'     => $fecha_sorteo,
+        'imagen'     => "b_loteria.png",
+        'icono'      => "icon-LoteriaNacionalAJ",
+        'numeros'    => $num_sorteo,
+        'reintegros' => $reintegros,
+        'premio'     => "",
+        'nom_fich'   => $fecha_fichero
+        ];
+
+        return $apuesta_fija;
+
+    }
+
+    // Busca la fecha del sorteo en el texto de OTROS.
+    public function busca_fecha_otrosTroceados(string $texto){
+
+        // Inicializamos la variable a devolver.
+        $fecha_sorteo = "";
+
+        // Buscamos el primer paréntesis
+        $posa = stripos($texto, "(");
+        $posc = stripos($texto, ")");
+        $poslen = $posc - $posa - 1;
+        $fecha_sorteo = trim(substr($texto, $posa + 1, $poslen));
+
+        return $fecha_sorteo;
+
+    }
+
+    // Busca el número del décimo en el texto de OTROS.
+    public function busca_numero_otrosTroceados(string $texto){
+     
+        // Inicializamos la variable a devolver.
+        $num_sorteo = "";
+
+        // Buscamos el separador ":"
+        $posa = stripos($texto, ":");
+        $posb = stripos($texto, "S");
+        $poslen = $posb - $posa - 1;
+
+        // Número del décimo.
+        $num_sorteo = trim(substr($texto, $posa + 1, $poslen));
+
+        return $num_sorteo;
+    }
+
+    // Busca la Serie y al Fracción del décimo en el texto de OTROS.
+    public function busca_SerieFraccion_otrosTroceados(string $texto, bool $fraccion= false){
+
+        // Inicializamos la variable a devolver.
+        $serieFraccion = "";
+        $strserie = "";
+        $strfraccion = "";
+
+        // Textos a buscar.
+        $str_serie = "rie:";
+        $str_fraccion = "Fracción:";
+
+        // Buscamos la serie
+        $posa = stripos($texto, $str_serie);
+        // Serie del décimo.
+        $strserie = trim(substr($texto, $posa + strlen($str_serie), 6));
+
+        // Buscamos la fracción
+        $posb = stripos($texto, $str_fraccion);
+        // Fracción del décimo.
+        $strfraccion = trim(substr($texto, $posb + strlen($str_fraccion)));
+
+        // Devolvemos la serie y la fracción.
+        if($fraccion){
+            $serieFraccion = $strserie . " - " . $strfraccion;
+        }else{
+            $serieFraccion = $strserie;
+        }
+        
+        return $serieFraccion;
+
     }
 
 }
