@@ -93,23 +93,68 @@ class ModeloPrimitiva{
 
         if (is_array($array_fecha)) {
             foreach ($array_fecha as $indice => $valor) {
-            if (!$texto) {
-                $texto = $valor;
-            } else {
-                if ($tot_fechas > 2 && $indicador == false) {
-                $separador = $separador1;
-                $indicador = true;
+                if (!$texto) {
+                    $texto = $valor;
                 } else {
-                $separador = $separador0;
+                    if ($tot_fechas > 2 && $indicador == false) {
+                        $separador = $separador1;
+                        $indicador = true;
+                    } else {
+                        $separador = $separador0;
+                    }
+                    $texto = $texto . $separador . $valor;
                 }
-                $texto = $texto . $separador . $valor;
-            }
             }
         } else {
             $texto = $array_fecha;
         }
-    
+
         return $texto;
+    }
+
+
+    static public function funcObtenerNombreFicheroDecimo(string $fecha, string $tipo_apuesta, bool $frontal, bool $porajax): string{
+
+        // Inicializamos el nombre del fichero.
+        $nombre_fich = "";
+
+        // Definimos la ubicación.
+        $ubicacion = "decimos/";
+        $nombre_fich_404 = "404.png";
+        $nombre_fichero = "_decimo";
+
+        // Si el décimo es un de la once, el nombre cambia.
+        if ($tipo_apuesta == 'laonce') {
+            $nombre_fichero = "_once";
+        }
+
+        // Tratamos la fecha: 22/12/2020
+        $nombre_fich = substr($fecha, 6, 4) . "-" . substr($fecha, 3, 2) . "-" . substr($fecha, 0, 2);
+
+        // Añadimos lo último
+        $nombre_fich = $ubicacion . $nombre_fich . $nombre_fichero;
+        if ($frontal) {
+            $nombre_fich = $nombre_fich . "f.jpg";
+        } else {
+            $nombre_fich = $nombre_fich . "t.jpg";
+        }
+
+        // Determinamos si existe el fichero.
+        // Por la llamada ajax el fichero hay que mirarlo desde "php".
+        if ($porajax) {
+            //$nombre_fich_ajax = "../" . $nombre_fich;
+            $nombre_fich_ajax = $blog["dominio"].'vistas/' . $nombre_fich;
+        } else {
+            $nombre_fich_ajax = $blog["dominio"].'vistas/' . $nombre_fich;
+        }
+
+        // Si no existe el fichero, devolvemos el 404.
+        if (!file_exists($nombre_fich_ajax)) {
+            $nombre_fich = $ubicacion . $nombre_fich_404;
+        }
+
+        return $nombre_fich;
+
     }
 
 
@@ -184,15 +229,11 @@ class ModeloPrimitiva{
 
         // OTROS
         $mi_apuesta =  $miApuesta ->prepara_bloque_otros();
-        //echo '<pre>'; print_r($mi_apuesta ); echo '</pre>';
-
         if (!empty($mi_apuesta)) {
             foreach ($mi_apuesta as $otro_tipo => $otro_apuesta) {
                 $apuestasSeparadas[$otro_tipo] = $otro_apuesta;
             }
         }
-
-
 
         return $apuestasSeparadas;
 

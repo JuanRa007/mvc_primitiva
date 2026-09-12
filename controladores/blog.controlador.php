@@ -13,7 +13,7 @@
         }
 
 
-        static public function ctrMostrarApuesta(){
+        static public function ctrMostrarUltimaApuesta(){
 
             $tabla = "numapuesta";
 

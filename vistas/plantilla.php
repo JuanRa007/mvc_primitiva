@@ -2,6 +2,9 @@
 
 $blog=ControladorBlog::ctrMostrarBlog();
 
+// Pagina en visualización
+$app_pagina ="";
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +17,7 @@ $blog=ControladorBlog::ctrMostrarBlog();
     <meta name="description" content="<?php  echo $blog["descripcion"] ?>" />
     <!-- Valores META para los ficheros PHP -->
     <meta charset="UTF-8" />
-    <link rel="icon" href="<?php echo $blog["dominio"];?>vistas/img/favicon.ico" />
+    <link rel="icon" href="<?php echo $blog['dominio'].$blog['icono'];?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Fuente Google -->
     <link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet" />
@@ -32,7 +35,57 @@ $blog=ControladorBlog::ctrMostrarBlog();
 
 <?php 
 
-    include "paginas/inicio.php";
+	/*=============================================
+	Navegar entre páginas
+	=============================================*/
+
+    $rutas = array();
+    if (isset($_GET["pagina"])) {
+        $rutas = explode("/", $_GET["pagina"]);
+
+        // echo '<br><br><br><h1>PAGINA 1: '.$_GET["pagina"].'</h1>';
+        // echo '<h1>RUTA: '.$rutas[0].'</h1>';
+
+        /*=============================================
+        Validar las rutas
+        =============================================*/
+        if ($rutas[0] == "inicio") {
+            $app_pagina = "inicio";
+            include "paginas/modulos/menu.php";
+            include "paginas/modulos/slider.php";
+            include "paginas/modulos/contenido-inicio.php";
+        }elseif ($rutas[0] == "saldos") {
+            $app_pagina = "saldos";
+            include "paginas/modulos/menu.php";
+            include "paginas/modulos/contenido-saldos.php";
+        }elseif ($rutas[0] == "anteriores") {
+            $app_pagina = "anteriores";
+            include "paginas/modulos/menu.php";
+            include "paginas/modulos/contenido-anteriores.php";
+        }else{
+            include "paginas/modulos/menu.php";
+            include "paginas/modulos/contenido-404.php";
+        }
+    
+
+    } else {
+        
+        // echo '<br><br><br><h1>NO NOS LLEGA NADA...</h1>';
+        // echo '<h1>PAGINA 2: '.$_GET["pagina"].'</h1>';
+
+        // Si nos nos llega nada, cargamos la página de inicio
+        $app_pagina = "inicio";
+        include "paginas/modulos/menu.php";
+        include "paginas/modulos/slider.php";
+        include "paginas/modulos/contenido-inicio.php";
+    
+    }
+
+	/*=============================================
+	Módulos fijos inferiores
+	=============================================*/	
+
+	include "paginas/modulos/footer.php";
 
 ?>
 

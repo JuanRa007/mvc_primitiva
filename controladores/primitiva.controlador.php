@@ -614,13 +614,22 @@ class ControladorPrimitiva{
     public function busca_fecha_otrosTroceados(string $texto){
 
         // Inicializamos la variable a devolver.
-        $fecha_sorteo = "";
+        $fecha_sorteo = [];
 
         // Buscamos el primer paréntesis
         $posa = stripos($texto, "(");
         $posc = stripos($texto, ")");
         $poslen = $posc - $posa - 1;
-        $fecha_sorteo = trim(substr($texto, $posa + 1, $poslen));
+        $fecha_sorteo_texto = trim(substr($texto, $posa + 1, $poslen));
+        $aprefechas = explode('-', $fecha_sorteo_texto);
+
+        // Convertimos las fechas a formato dd/mm/yyyy y en una tabla.
+        foreach ($aprefechas as $key => $value) {
+            $value = trim($value);
+            $fecha_new = strtotime($value);
+            $fecha_new = date('d/m/Y', $fecha_new);
+            $fecha_sorteo[] = $fecha_new;
+        }
 
         return $fecha_sorteo;
 
