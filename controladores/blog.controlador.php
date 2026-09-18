@@ -85,4 +85,15 @@
 
         }
 
+
+        static public function ctrMostrarSaldosParticipantes(){
+
+            $tabla1 = "participantes";
+            $tabla2 = "aportaciones";
+
+            $respuesta = ModeloBlog::mdlMostrarSaldosParticipantes($tabla1, $tabla2);
+
+            return $respuesta;
+
+        }
 }

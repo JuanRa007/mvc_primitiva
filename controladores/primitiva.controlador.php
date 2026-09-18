@@ -23,8 +23,11 @@ class ControladorPrimitiva{
      public string $reg_marvie;
      public string $reg_primitresdias;
      public string $reg_primivaritresdias;
-     public string $reg_euromillonEspecial;
+     public bool $reg_euromillonEspecial;
      public string $reg_otrosTroceados;
+     public array $reg_numerosApuOtros;
+     public array $reg_reintegros1ApuOtros;
+     public array $reg_reintegros2ApuOtros;
 
 
     // Constructor de la clase
@@ -50,8 +53,11 @@ class ControladorPrimitiva{
         $this->reg_marvie = '';
         $this->reg_primitresdias = '';
         $this->reg_primivaritresdias = '';
-        $this->reg_euromillonEspecial = '';
+        $this->reg_euromillonEspecial = false;
         $this->reg_otrosTroceados = '';
+        $this->reg_numerosApuOtros = [];
+        $this->reg_reintegros1ApuOtros = [];
+        $this->reg_reintegros2ApuOtros = [];
    }
 
     // Devuelve un array con las fechas de los sorteos según el tipo de apuesta y la fecha indicada.
@@ -298,7 +304,6 @@ class ControladorPrimitiva{
             // Guardamos el reintegro.
             $reintegros[] = $this->reg_numvarir;
 
-
             // Puede haber otra apuesta en el campo correspondiente.
             if($this->reg_numvari1){
                 $this->reg_numvari = $this->reg_numvari . " / " . $this->reg_numvari1;
@@ -339,40 +344,72 @@ class ControladorPrimitiva{
         // Es una apuesta especial de Euromillón.
         if($this->reg_euromillonEspecial){
             $strtitulo = "Euromillones Especial";
+            // Dependiendo del valor de MARVIE, el subtítulo cambia.
+            if($this->reg_marvie == 'M'){
+                $strsubtitulo = "Martes";
+            }elseif($this->reg_marvie == 'V'){
+                $strsubtitulo = "Viernes";
+            }elseif($this->reg_marvie == 'T'){
+                $strsubtitulo = "Martes y Viernes";
+            }else{
+                $strsubtitulo = "Martes y Viernes";
+            }
         }
 
         // Controlar "marvie"
         $tipo_fecha = $this->obtener_valor_marvie();
 
         // Nos llegan dos apuestas de Euromillón.
-        if($this->reg_euromillon){
+        if($this->reg_euromillon or count($this->reg_numerosApuOtros)> 0){
 
             $fecha_marvie = $this->obtener_fecha_sorteo($tipo_fecha, $this->reg_fecha);
 
-            $euromillon_pro =  $this->reg_euromillon;
-            $euroruno = number_format($this->reg_euroruno, 0, ',', '.');
-            if (strlen($euroruno) == 1) {
-                $euroruno = '0' . $euroruno;
-            }
-            $eurordos = number_format($this->reg_eurordos, 0, ',', '.');
-            if (strlen($eurordos) == 1) {
-                $eurordos = '0' . $eurordos;
-            }
-            $reintegros[] = $euroruno . " - " . $eurordos;
 
-            // Segundo grupo de apuestas de Euromillón.
-            if($this->reg_euromillon1){
-                $euromillon_pro .= " / " . $this->reg_euromillon1;
-                $euroruno1 = number_format($this->reg_euroruno1, 0, ',', '.');
-                if (strlen($euroruno1) == 1) {
-                    $euroruno1 = '0' . $euroruno1;
+            // Comprobamos si es una apuesta múltiple.
+            if (count($this->reg_numerosApuOtros)>0) {
+                
+                $euromillon_pro = "";
+                for ($i=0; $i < count($this->reg_reintegros1ApuOtros) ; $i++) { 
+                    $reintegros[] = $this->reg_reintegros1ApuOtros[$i] . " - " . $this->reg_reintegros2ApuOtros[$i];
                 }
-                $eurordos1 = number_format($this->reg_eurordos1, 0, ',', '.');
-                if (strlen($eurordos1) == 1) {
-                    $eurordos1 = '0' . $eurordos1;
+                for ($i=0; $i < count($this->reg_numerosApuOtros); $i++) { 
+                    if ($i < 1) {
+                        $euromillon_pro = $this->reg_numerosApuOtros[$i];
+                    } else {
+                        $euromillon_pro = $euromillon_pro . " / " . $this->reg_numerosApuOtros[$i];
+                    }
+                    
                 }
-                $reintegros[] = $euroruno1 . " - " . $eurordos1;
-            } 
+
+
+            } else {
+
+                $euromillon_pro =  $this->reg_euromillon;
+                $euroruno = number_format($this->reg_euroruno, 0, ',', '.');
+                if (strlen($euroruno) == 1) {
+                    $euroruno = '0' . $euroruno;
+                }
+                $eurordos = number_format($this->reg_eurordos, 0, ',', '.');
+                if (strlen($eurordos) == 1) {
+                    $eurordos = '0' . $eurordos;
+                }
+                $reintegros[] = $euroruno . " - " . $eurordos;
+
+                // Segundo grupo de apuestas de Euromillón.
+                if($this->reg_euromillon1){
+                    $euromillon_pro .= " / " . $this->reg_euromillon1;
+                    $euroruno1 = number_format($this->reg_euroruno1, 0, ',', '.');
+                    if (strlen($euroruno1) == 1) {
+                        $euroruno1 = '0' . $euroruno1;
+                    }
+                    $eurordos1 = number_format($this->reg_eurordos1, 0, ',', '.');
+                    if (strlen($eurordos1) == 1) {
+                        $eurordos1 = '0' . $eurordos1;
+                    }
+                    $reintegros[] = $euroruno1 . " - " . $eurordos1;
+                } 
+
+            }
 
             $num_sorteo = $this->obtener_numeros_sorteo($euromillon_pro);
 
@@ -428,6 +465,17 @@ class ControladorPrimitiva{
                 //=======================
                 $pos1 = stripos($strmirar, "Euromillón");
                 if ($pos1 !== false){
+
+                     // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+                    $this->reg_euromillonEspecial = true;  // Es una apuesta especial de Euromillón.
+
+                    // Obtenemos los datos del Décimo.
+                    $mi_apuesta = $this->prepara_otros_euromillones_espec();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['otroeuromvari'] = $mi_apuesta;
+                    }
 
                 }   // Fin EUROMILLONES
 
@@ -555,24 +603,6 @@ class ControladorPrimitiva{
    
     }
 
-    // Prepara el texto del aviso en OTROS.
-    public function prepara_texto_aviso(){
-
-        // Inicializamos la variable a devolver.
-        $texto_aviso = "";
-
-        // Separamos el aviso en cabecera y mensaje.
-        $pos1 = strpos($this->reg_otrosTroceados, ":");      // Usamos STRPOS para distinguir mayúsculas y minúsculas.
-        if ($pos1 !== false) {
-            $texto_aviso = trim(substr($this->reg_otrosTroceados, $pos1 + strlen(":")));
-        }else{
-            $texto_aviso = trim($this->reg_otrosTroceados);
-        }
-
-        return $texto_aviso;
-    
-    }
-
     // Prepara el bloque de décimo en OTROS.
     public function prepara_otros_decimo(){
 
@@ -587,7 +617,7 @@ class ControladorPrimitiva{
         $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
 
         // Obtenemos el número del décimo.
-        $num_sorteo= $this->busca_numero_otrosTroceados($this->reg_otrosTroceados);
+        $num_sorteo= $this->busca_numero_decimo_otrosTroceados($this->reg_otrosTroceados);
 
         // Obtenemos el Serie y Fracción del décimo.
         $reintegros = $this->busca_SerieFraccion_otrosTroceados($this->reg_otrosTroceados, true);
@@ -610,7 +640,77 @@ class ControladorPrimitiva{
 
     }
 
-    // Busca la fecha del sorteo en el texto de OTROS.
+    // Prepara el bloque de euromillones Especial en OTROS.
+    public function prepara_otros_euromillones_espec(){
+
+        // Ahora tenemos un string con apuestas de euromillones.
+        // Puede haber varias fechas, puede haber varias apuestas.
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+
+        // Preparamos los datos para que la función que prepara el bloque de euromillones Especial pueda trabajar con ellos.
+        
+        // Obtenemos las fechas del sorteo (puede haber varias).
+        $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
+
+        // Si son varias, puede ser Martes y Viernes, o sólo Martes o sólo Viernes. Lo indicamos en la propiedad reg_marvie.
+        if(count($fecha_sorteo) > 1){
+            $this->reg_marvie = "T";  // Martes y Viernes
+        }else{
+            // Indicamos si es Martes o Viernes.
+            $fecha_sorteo_texto = $fecha_sorteo[0];
+            $fecha_sorteo_texto = strtotime($fecha_sorteo_texto);
+            $diasemana = date("N", $fecha_sorteo_texto);
+            if($diasemana == 2){
+                $this->reg_marvie = "M";  // Martes
+            }elseif($diasemana == 5){
+                $this->reg_marvie = "V";  // Viernes
+            }else{
+                $this->reg_marvie = "T";  // Martes y Viernes
+            }
+        }
+
+        // Obtenemos los números de la apuesta.
+        $apuestaEuromilloEspecial = $this->busca_numeros_apuestas_otrosTroceados($this->reg_otrosTroceados);
+        // echo '<pre>'.print_r($apuestaEuromilloEspecial).'</pre><br><br>';
+
+        // Devolvemos los valores obtenidos a las variables del objeto.
+        $this->reg_numerosApuOtros = $apuestaEuromilloEspecial["numeros"];
+        $this->reg_reintegros1ApuOtros = $apuestaEuromilloEspecial["reintegros1"];
+        $this->reg_reintegros2ApuOtros = $apuestaEuromilloEspecial["reintegros2"];
+
+        // Llamamos a la función que prepara el bloque de euromillones Especial.
+        $apuesta_fija = $this->prepara_euromillones_vari();
+
+
+
+
+
+
+        return $apuesta_fija;
+
+    }
+
+    // Prepara el texto del aviso en OTROS.
+    public function prepara_texto_aviso(){
+
+        // Inicializamos la variable a devolver.
+        $texto_aviso = "";
+
+        // Separamos el aviso en cabecera y mensaje.
+        $pos1 = strpos($this->reg_otrosTroceados, ":");      // Usamos STRPOS para distinguir mayúsculas y minúsculas.
+        if ($pos1 !== false) {
+            $texto_aviso = trim(substr($this->reg_otrosTroceados, $pos1 + strlen(":")));
+        }else{
+            $texto_aviso = trim($this->reg_otrosTroceados);
+        }
+
+        return $texto_aviso;
+    
+    }
+
+    // Busca la fecha del sorteo en el texto de OTROS: devuelve en array con las fechas en formato dd/mm/yyyy.
     public function busca_fecha_otrosTroceados(string $texto){
 
         // Inicializamos la variable a devolver.
@@ -636,7 +736,7 @@ class ControladorPrimitiva{
     }
 
     // Busca el número del décimo en el texto de OTROS.
-    public function busca_numero_otrosTroceados(string $texto){
+    public function busca_numero_decimo_OtrosTroceados(string $texto){
      
         // Inicializamos la variable a devolver.
         $num_sorteo = "";
@@ -684,5 +784,42 @@ class ControladorPrimitiva{
         return $serieFraccion;
 
     }
+
+
+    // Busca los números de la apuesta en el texto de OTROS.
+    public function busca_numeros_apuestas_otrosTroceados(string $strapuesta){
+
+        // Inicializamos la variable a devolver.
+        $anumbers = [];
+        $reintegros = [];
+        $strapureiuno = [];
+        $strapureidos = [];
+
+        // Buscamos el separador ":"
+        $posa = stripos($strapuesta, ":");
+        $strnumber = trim(substr($strapuesta, $posa + 1));
+        $aprenumbers = explode('/', $strnumber);
+  
+        // Tratamos cada apuesta a formato de la aplicación.
+        foreach ($aprenumbers as $key => $value) {
+            $preint = stripos($value, "R.");
+            $anumbers[] = trim(substr($value, 0, $preint - 1));
+            $reintegros = explode("-", trim(substr($value, $preint + 2)));
+            $strapureiuno[] =  $reintegros[0];
+            if (count($reintegros) > 1) {
+                $strapureidos[] =  $reintegros[1];
+            }
+        }
+
+        $devolver = [
+                        "numeros" => $anumbers,
+                        "reintegros1" => $strapureiuno,
+                        "reintegros2" => $strapureidos
+        ];
+
+        return $devolver;               // $anumbers;
+
+    }
+
 
 }

@@ -8,12 +8,23 @@ $ultApuesta = ControladorBlog::ctrMostrarUltimaApuesta();
 $fecha_apu = strtotime($ultApuesta['fecha']);
 $fecha_apu = date( 'd/m/Y', $fecha_apu);
 
+// Obtenemos los saldos de los participantes
+$saldos_part = ControladorBlog::ctrMostrarSaldosParticipantes();
 
+// Se tiene que añadir el total de los saldos (Cestillo).
+$total = 0;
+foreach ($saldos_part as $fila) {
+    $total += $fila['total_aportado']; // Se va sumando cada importe al total
+}
+$saldos_part[] = array(
+    "participante" => "Cestillo",
+    "total_aportado" => $total,
+    "ultima_fecha_aportacion" => date('Y-m-d',time()). " 00:00:00"
+);
+ // echo 'SALDOS<pre>'; print_r($saldos_part); echo '</pre>';
 
-$saldos_part =[];
+// Mínimo saldo permitido
 $app_saldominimo=$blog["saldominimo"];
-
-
 ?>
 
 <!-- Nuestras apuestas -->
@@ -22,9 +33,7 @@ $app_saldominimo=$blog["saldominimo"];
     <div class="row">
       <div class="col">
         <div class="info-cabecera mb-5">
-          <h1 class="text-dark pb-3">
-            Saldos Actuales
-          </h1>
+          <h1 class="text-dark pb-3">Saldos Actuales</h1>
         </div>
       </div>
     </div>
@@ -34,9 +43,7 @@ $app_saldominimo=$blog["saldominimo"];
       <div class="col-md-8 offset-md-2">
         <div class="table-responsive">
           <table class="table table-striped table-bordered">
-            <caption>
-              Saldos actualizados a la fecha de <?= $fecha_apu ?>.
-            </caption>
+            <caption>Saldos actualizados a la fecha de <?= $fecha_apu ?>.</caption>
             <thead class="thead-dark">
               <tr class="aling-center">
                 <th>Participante</th>
@@ -49,11 +56,12 @@ $app_saldominimo=$blog["saldominimo"];
               <?php
               foreach ($saldos_part as $usuario) {
 
-                $participante = $usuario[0];
-                $saldo = number_format(sprintf("%01.2f", $usuario[1]), 2, ',', '.');
+                $participante = $usuario["participante"];
+                $saldo = number_format(sprintf("%01.2f", $usuario["total_aportado"]), 2, ',', '.');
                 // 20241230--> Nuevo control de saldo mínimo.
-                $saldo_flo = $usuario[1];
-                $fecha = convierte_fecha($usuario[2]);
+                $saldo_flo = $usuario["total_aportado"];
+                $fecha = strtotime($usuario["ultima_fecha_aportacion"]);
+                $fecha = date( 'd/m/Y', $fecha);
 
                 $clase = "";
                 if ($participante == "BOTE") {

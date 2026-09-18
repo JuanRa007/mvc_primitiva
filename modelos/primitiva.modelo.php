@@ -169,6 +169,7 @@ class ModeloPrimitiva{
         }
 
         $miApuesta = new ControladorPrimitiva();
+        $miApuestaOtro = new ControladorPrimitiva();
 
         // Inicializamos las propiedades del objeto con los datos del registro
         $miApuesta ->mis_apuestas = [];
@@ -228,12 +229,16 @@ class ModeloPrimitiva{
         }
 
         // OTROS
-        $mi_apuesta =  $miApuesta ->prepara_bloque_otros();
+        $miApuestaOtro -> reg_otros = $registro['otros'];
+        $mi_apuesta =  $miApuestaOtro ->prepara_bloque_otros();
         if (!empty($mi_apuesta)) {
             foreach ($mi_apuesta as $otro_tipo => $otro_apuesta) {
                 $apuestasSeparadas[$otro_tipo] = $otro_apuesta;
             }
         }
+
+        // Liberamos memoria
+        unset($miApuesta, $miApuestaOtro);
 
         return $apuestasSeparadas;
 

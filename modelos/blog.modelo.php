@@ -76,4 +76,29 @@ class ModeloBlog{
         $stmt = "";
 
     }
+
+    // Obtenemos los saldos de los participantes
+    static public function mdlMostrarSaldosParticipantes(string $tabla1, string $tabla2){
+
+        // SELECT 
+        //     p.participante,
+        //     COALESCE(SUM(a.importe), 0.0000) AS total_aportado,
+        //     MAX(a.fecha) AS ultima_fecha_aportacion
+        // FROM participantes p
+        // LEFT JOIN aportaciones a ON p.participante = a.participante
+        // GROUP BY p.participante
+        // ORDER BY p.participante ASC;
+        $sql = "SELECT $tabla1.participante, COALESCE(SUM($tabla2.importe), 0.0000) AS total_aportado, MAX($tabla2.fecha) AS ultima_fecha_aportacion FROM $tabla1 LEFT JOIN $tabla2 ON $tabla1.participante = $tabla2.participante GROUP BY $tabla1.participante ORDER BY $tabla1.participante ASC";
+
+        $stmt = Conexion::conectar()->prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+
+        $stmt->close();
+
+        $stmt = "";
+
+    }   
 }
