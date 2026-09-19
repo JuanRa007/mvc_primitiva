@@ -230,6 +230,7 @@ class ModeloPrimitiva{
 
         // OTROS
         $miApuestaOtro -> reg_otros = $registro['otros'];
+        $miApuestaOtro -> reg_fecha = $registro['fecha'];
         $mi_apuesta =  $miApuestaOtro ->prepara_bloque_otros();
         if (!empty($mi_apuesta)) {
             foreach ($mi_apuesta as $otro_tipo => $otro_apuesta) {
