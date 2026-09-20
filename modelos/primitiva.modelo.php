@@ -86,7 +86,7 @@ class ModeloPrimitiva{
 
         // Si es una apuesta especial, la fecha es de un día a otro.
         if ($tipo_apuesta == 'bonoloto') {
-            $separador = " al ";
+            $separador0 = " al ";
         } else {
             $separador = $separador0;
         }

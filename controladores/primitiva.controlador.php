@@ -504,6 +504,16 @@ class ControladorPrimitiva{
                 $pos1 = stripos($strmirar, "Bonoloto");
                 if ($pos1 !== false) {
 
+                     // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+
+                    // Obtenemos los datos de la Bonoloto.
+                    $mi_apuesta = $this->prepara_otros_bonoloto();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['bonoloto'] = $mi_apuesta;
+                    }
+
                 }  // Fin BONOLOTO
 
 
@@ -530,6 +540,15 @@ class ControladorPrimitiva{
                 $pos1 = stripos($strmirar, "Once");
                 if ($pos1 !== false) {
 
+                    // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+
+                    // Obtenemos los datos del Sorteo de la Once.
+                    $mi_apuesta = $this->prepara_otros_laonce();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['laonce'] = $mi_apuesta;
+                    }
 
                 }   // Fin ONCE
 
@@ -572,6 +591,16 @@ class ControladorPrimitiva{
                 // Buscamos Desconocido
                 //=======================
                 if ($strmirar) {
+
+                // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+
+                    // Obtenemos los datos del Sorteo de la Once.
+                    $mi_apuesta = $this->prepara_otros_desconocido();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['desconocido'] = $mi_apuesta;
+                    }
 
                 }   // Fin DESCONOCIDO
 
@@ -626,8 +655,6 @@ class ControladorPrimitiva{
 
         // Buscamos la fecha del sorteo en el texto.
         $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
-        $fecha_sorteo[0] = strtotime($fecha_sorteo[0]);
-        $fecha_sorteo[0] = date( 'd/m/Y', $fecha_sorteo[0]);
 
         // Obtenemos el número del décimo.
         $num_sorteo= $this->busca_numero_decimo_otrosTroceados($this->reg_otrosTroceados);
@@ -729,7 +756,7 @@ class ControladorPrimitiva{
 
     }
 
-    // Devuelve un array con las apuestas en el EUROMILLÓN.
+    // Devuelve un array con las apuestas en el GORDO.
     public function prepara_elgordo_vari(){
 
         // Incializar variable a devolver.
@@ -787,6 +814,160 @@ class ControladorPrimitiva{
 
     }
 
+    // Prep
+    public function prepara_otros_bonoloto(){
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+
+        // Preparamos los datos para que la función que prepara el bloque de euromillones Especial pueda trabajar con ellos.
+        
+        // Obtenemos las fechas del sorteo (puede haber varias).
+        $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
+        $this->reg_fechasApuOtros = $fecha_sorteo;
+
+        // Obtenemos los números de la apuesta.
+        $apuestaBonoloto = $this->busca_numeros_apuestas_otrosTroceados($this->reg_otrosTroceados);
+
+        // Devolvemos los valores obtenidos a las variables del objeto.
+        $this->reg_numerosApuOtros = $apuestaBonoloto["numeros"];
+        $this->reg_reintegros1ApuOtros = $apuestaBonoloto["reintegros1"];
+        $this->reg_reintegros2ApuOtros = $apuestaBonoloto["reintegros2"];
+
+        // Llamamos a la función que prepara el bloque de euromillones Especial.
+        $apuesta_fija = $this->prepara_bonoloto_vari();
+
+        return $apuesta_fija;
+
+    }
+
+
+    // Devuelve un array con las apuestas en la BONOLOTO.
+    public function prepara_bonoloto_vari(){
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+        $bonoloto_pro = "";
+        $bonoloto_runo = "";
+        $reintegros = [];
+
+        // Mensajes por defecto.
+        $strtitulo = "Bonoloto";
+        $strsubtitulo = "Semanal";
+
+        // Comprobamos si es una apuesta múltiple.
+        if (count($this->reg_numerosApuOtros)>0) {
+            
+            for ($i = 0; $i < count($this->reg_reintegros1ApuOtros); $i++) {
+                $reintegros[] = $this->reg_reintegros1ApuOtros[$i];
+            }
+            for ($i = 0; $i < count($this->reg_numerosApuOtros); $i++) {
+                if ($i < 1) {
+                    $bonoloto_pro = $this->reg_numerosApuOtros[$i];
+                } else {
+                    $bonoloto_pro = $bonoloto_pro . " / " . $this->reg_numerosApuOtros[$i];
+                }
+            }
+
+        } else {
+
+            $bonoloto_pro =  $this->reg_numerosApuOtros;
+            $bonoloto_runo = $this->reg_reintegros1ApuOtros;
+            $bonoloto_runo = number_format($this->reg_euroruno, 0, ',', '.');
+            if (strlen($bonoloto_runo) == 1) {
+                $bonoloto_runo = '0' . $bonoloto_runo;
+            }
+            $reintegros[] = $bonoloto_runo;
+
+        }
+
+        $num_sorteo = $this->obtener_numeros_sorteo($bonoloto_pro);
+
+          $apuesta_fija[] = [
+            'titulo'     => $strtitulo,
+            'subtitulo'  => $strsubtitulo,
+            'color'      => "primary",
+            'fechas'     => $this->reg_fechasApuOtros,
+            'imagen'     => "b_bonoloto.png",
+            'icono'      => "icon-BonolotoAJ",
+            'numeros'    => $num_sorteo,
+            'reintegros' => $reintegros,
+            'premio'     => ""
+        ];
+
+
+        return $apuesta_fija;
+
+    }
+
+    // Prepara el bloque de décimo de la ONCE.
+    public function prepara_otros_laonce(){
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+
+        // Obtenemos la fecha del sorteo.
+        $fecha_fichero = strtotime($this->reg_fecha);
+        $fecha_fichero = date( 'd/m/Y', $fecha_fichero);
+
+        // Buscamos la fecha del sorteo en el texto.
+        $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
+
+        // Obtenemos el número del décimo.
+        $num_sorteo= $this->busca_numero_decimo_otrosTroceados($this->reg_otrosTroceados);
+
+        // Obtenemos el Serie y Fracción del décimo.
+        $reintegros = $this->busca_SerieFraccion_otrosTroceados($this->reg_otrosTroceados, false);
+
+        $apuesta_fija[] = [
+            'titulo'     => "La ONCE",
+            'subtitulo'  => "Once de la Once",
+            'color'      => "success",
+            'fechas'     => $fecha_sorteo,
+            'imagen'     => "b_once.png",
+            'icono'      => "icon-LoteriaNacionalAJ",
+            'numeros'    => $num_sorteo,
+            'reintegros' => $reintegros,
+            'premio'     => "",
+            'nom_fich'   => $fecha_fichero
+        ];
+
+        return $apuesta_fija;
+
+    }
+
+    // Prepara el bloque de otros DESCONOCIDO.
+    public function prepara_otros_desconocido(){
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+
+        // Mensajes por defecto.
+        $strtitulo = "";
+        $strsubtitulo = "";
+
+        // Buscamos la fecha del sorteo en el texto.
+        $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
+
+        $strtitulo = "[Desconocido]: " . $fecha_sorteo[0];
+        $strsubtitulo = strip_tags($this->reg_otrosTroceados);
+
+        $apuesta_fija[] = [
+            'titulo'     => $strtitulo,
+            'subtitulo'  => $strsubtitulo,
+            'color'      => "success",
+            'fechas'     => $fecha_sorteo,
+            'imagen'     => "",
+            'icono'      => "",
+            'numeros'    => "",
+            'reintegros' => "",
+            'premio'     => ""
+        ];
+
+        return $apuesta_fija;
+
+    }
+    
 
     // -----------------------------------------------------------------
     // |                                                               | 
@@ -817,6 +998,7 @@ class ControladorPrimitiva{
 
         // Inicializamos la variable a devolver.
         $fecha_sorteo = [];
+        $fecha_new = "";
 
         // Buscamos el primer paréntesis
         $posa = stripos($texto, "(");
@@ -828,18 +1010,14 @@ class ControladorPrimitiva{
         // Convertimos las fechas a formato dd/mm/yyyy y en una tabla.
         foreach ($aprefechas as $key => $value) {
             $value = trim($value);
+
+            // Existe un error con la instrucción STRTOTIME, ya que con fechas con sepeador "/" entiende que el formato
+            // es MES/DIA/AÑO.
+            $value = substr($value, 6, 4) . "-" . substr($value, 3, 2) . "-" . substr($value, 0, 2);
             $fecha_new = strtotime($value);
-
-            // TODO: La fecha no funciona. Cuidado con el uso al resto de los OTROS
-
-            echo '<br><br><br><br>FECHA OTROS THIS 3 >>>>'.$fecha_new.'<br><br>';
-
             $fecha_new = date('d/m/Y', $fecha_new);
             $fecha_sorteo[] = $fecha_new;
         }
-
-        echo '<br><br><br><br>FECHA OTROS THIS 2 >>>>'.$fecha_sorteo[0].'<br><br>';
-
 
         return $fecha_sorteo;
 
