@@ -14,7 +14,7 @@ $diferencia_dias = ModeloPrimitiva::funcFechaDiferencia($ultApuesta['fecha'], $f
 
 // Descomponemos el resgitro de apuestas según sus resultados.
 $detaApuestas = modeloPrimitiva::funcSeparaApuestas($ultApuesta);
-// echo '<pre>'; print_r($detaApuestas); echo '</pre>';
+// echo '<h1>APUESTAS TODAS:</h1><br><pre>'; print_r($detaApuestas); echo '</pre>';
 
 // Buscamos la existencia de algún aviso de interés.
 $tituloAvisos = "";
@@ -75,6 +75,7 @@ foreach ($detaApuestas as $tipo_apuesta => $mi_apuesta) {
           $desconocido .= 'console.log("Título: "' . $apuesta["titulo"] . ');';
           $desconocido .= 'console.log("Subtítulo: ["' . $apuesta["subtitulo"] . ');';
           $desconocido .= '</script>';
+          echo $desconocido;
           continue;
         }
         ?>

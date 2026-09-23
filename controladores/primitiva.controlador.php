@@ -24,6 +24,7 @@ class ControladorPrimitiva{
      public string $reg_primitresdias;
      public string $reg_primivaritresdias;
      public bool $reg_euromillonEspecial;
+     public bool $reg_primitivaEspecial;
      public string $reg_otrosTroceados;
      public array $reg_fechasApuOtros;
      public array $reg_numerosApuOtros;
@@ -55,6 +56,7 @@ class ControladorPrimitiva{
         $this->reg_primitresdias = '';
         $this->reg_primivaritresdias = '';
         $this->reg_euromillonEspecial = false;
+        $this->reg_primitivaEspecial = false;
         $this->reg_otrosTroceados = '';
         $this->reg_fechasApuOtros = [];
         $this->reg_numerosApuOtros = [];
@@ -291,8 +293,8 @@ class ControladorPrimitiva{
         // Incializar variable a devolver.
         $apuesta_fija = [];
 
-        // Viene el primer bloque de primitva especial.
-        if($this->reg_numvari){
+        // Viene el primer bloque de primitva especial o en el Especial.
+        if($this->reg_numvari or $this->reg_primitivaEspecial){
 
             // Buscar el jueves y sábado de la fecha indicada, o lunes, jueves y sábado.
             if($this->reg_primivaritresdias){
@@ -577,6 +579,17 @@ class ControladorPrimitiva{
                 $pos1 = stripos($strmirar, "PrimitivaE");
                 if ($pos1 !== false) {
 
+                    // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+                    $this->reg_primitivaEspecial = true;  // Es una apuesta especial de Primitiva.
+
+                    // Obtenemos los datos del Sorteo de la Primitiva Especial.
+                    $mi_apuesta = $this->prepara_otros_primitiva_espec();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['primitivae'] = $mi_apuesta;
+                    }
+
                 }   // Fin PRIMITIVAE
 
 
@@ -585,12 +598,23 @@ class ControladorPrimitiva{
                 $pos1 = stripos($strmirar, "PrimitivaT");
                 if ($pos1 !== false) {
 
+                    // Nos guardamos el troza a tratar.
+                    $this->reg_otrosTroceados = $strmirar;
+                    $this->reg_primitivaEspecial = true;  // Es una apuesta especial de Primitiva.
+
+                    // Obtenemos los datos del Sorteo de la Primitiva Especial.
+                    $mi_apuesta = $this->prepara_otros_primitiva_espec();
+
+                    if ($mi_apuesta) {
+                        $apuesta_fija['primitivat'] = $mi_apuesta;
+                    }
+
                 }   // Fin PRIMITIVAT
 
 
                 // Buscamos Desconocido
                 //=======================
-                if ($strmirar) {
+                if ($otros_bak) {
 
                 // Nos guardamos el troza a tratar.
                     $this->reg_otrosTroceados = $strmirar;
@@ -873,10 +897,10 @@ class ControladorPrimitiva{
 
             $bonoloto_pro =  $this->reg_numerosApuOtros;
             $bonoloto_runo = $this->reg_reintegros1ApuOtros;
-            $bonoloto_runo = number_format($this->reg_euroruno, 0, ',', '.');
-            if (strlen($bonoloto_runo) == 1) {
-                $bonoloto_runo = '0' . $bonoloto_runo;
-            }
+            // $bonoloto_runo = number_format($this->reg_euroruno, 0, ',', '.');
+            // if (strlen($bonoloto_runo) == 1) {
+            //    $bonoloto_runo = '0' . $bonoloto_runo;
+            // }
             $reintegros[] = $bonoloto_runo;
 
         }
@@ -967,7 +991,91 @@ class ControladorPrimitiva{
         return $apuesta_fija;
 
     }
-    
+
+    // Prepara el bloque de Primitiva Especial en OTROS.
+    public function prepara_otros_primitiva_espec(){
+
+        // Ahora tenemos un string con apuestas de primitiva.
+        // Puede haber varias fechas, puede haber varias apuestas.
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+
+        // Preparamos los datos para que la función que prepara el bloque de Primitiva Especial pueda trabajar con ellos.
+        
+        // Obtenemos las fechas del sorteo (puede haber varias).
+        $fecha_sorteo = $this->busca_fecha_otrosTroceados($this->reg_otrosTroceados);
+        $fecha_sorteo = array_unique($fecha_sorteo);
+        $this->reg_fechasApuOtros = $fecha_sorteo;
+
+        // Obtenemos los números de la apuesta.
+        $apuestaPrimitivaEspecial = $this->busca_numeros_apuestas_otrosTroceados($this->reg_otrosTroceados);
+
+        // Devolvemos los valores obtenidos a las variables del objeto.
+        $this->reg_numerosApuOtros = $apuestaPrimitivaEspecial["numeros"];
+        $this->reg_reintegros1ApuOtros = $apuestaPrimitivaEspecial["reintegros1"];
+        $this->reg_reintegros2ApuOtros = $apuestaPrimitivaEspecial["reintegros2"];
+
+        // Llamamos a la función que prepara el bloque de euromillones Especial.
+        $apuesta_fija = $this->prepara_primtiva_otros_vari();
+
+        return $apuesta_fija;
+
+    }
+
+    // Devuelve un array con las apuestas de la Primitiva Especial en Otros.
+    public function prepara_primtiva_otros_vari(){
+
+        // Incializar variable a devolver.
+        $apuesta_fija = [];
+        $primitiva_pro = "";
+        $primitiva_runo = "";
+        $reintegros = [];
+
+        // Mensajes por defecto.
+        $strtitulo = "Primitiva Especial";
+        $strsubtitulo = "Apuesta Especial";
+
+        // Comprobamos si es una apuesta múltiple.
+        if (count($this->reg_numerosApuOtros)>0) {
+            
+            for ($i = 0; $i < count($this->reg_reintegros1ApuOtros); $i++) {
+                $reintegros[] = $this->reg_reintegros1ApuOtros[$i];
+            }
+            for ($i = 0; $i < count($this->reg_numerosApuOtros); $i++) {
+                if ($i < 1) {
+                    $primitiva_pro = $this->reg_numerosApuOtros[$i];
+                } else {
+                    $primitiva_pro = $primitiva_pro . " / " . $this->reg_numerosApuOtros[$i];
+                }
+            }
+
+        } else {
+
+            $primitiva_pro =  $this->reg_numerosApuOtros;
+            $primitiva_runo = $this->reg_reintegros1ApuOtros;
+            $reintegros[] = $primitiva_runo;
+
+        }
+
+        $num_sorteo = $this->obtener_numeros_sorteo($primitiva_pro);
+
+          $apuesta_fija[] = [
+            'titulo'     => $strtitulo,
+            'subtitulo'  => $strsubtitulo,
+            'color'      => "success",
+            'fechas'     => $this->reg_fechasApuOtros,
+            'imagen'     => "b_primitiva.png",
+            'icono'      => "icon-PrimitivaAJ",
+            'numeros'    => $num_sorteo,
+            'reintegros' => $reintegros,
+            'premio'     => ""
+        ];
+
+        return $apuesta_fija;
+
+    }
+
 
     // -----------------------------------------------------------------
     // |                                                               | 
