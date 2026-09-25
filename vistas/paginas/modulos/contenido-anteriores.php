@@ -8,6 +8,40 @@ $ultApuesta = ControladorBlog::ctrMostrarUltimaApuesta();
 $fecha_UltApu = strtotime($ultApuesta['fecha']);
 $fecha_UltApu = date( 'd/m/Y', $fecha_UltApu);
 
+// Obtenemos el mes/año actual. TODO: nos llegará el mes/año seleccionado por el usuario.
+$fecha_dia = 0;
+$fecha_mes = date("n", time());
+$fecha_ano = date("Y", time());
+
+// Convertimos a dos de longitud.
+$fecha_dia = (strlen($fecha_dia) < 2)  ? "0" . $fecha_dia : $fecha_dia;
+$fecha_mes = (strlen($fecha_mes) < 2)  ? "0" . $fecha_mes : $fecha_mes;
+
+// Obtenemos los datos del mes a procesar.
+$calendario = ControladorCalendario::ctrObtenerCalendario($fecha_mes, $fecha_ano);
+
+// Punteros mes anterior y mes posterior.
+$ano_ant = $fecha_ano;
+$mes_ant = $fecha_mes;
+$mes_ant--;
+if ($mes_ant < 1) {
+  $mes_ant = 12;
+  $ano_ant--;
+}
+$ano_pos = $fecha_ano;
+$mes_pos = $fecha_mes;
+$mes_pos++;
+if ($mes_pos > 12) {
+  $mes_pos = 1;
+  $ano_pos++;
+}
+
+$enlace_mes_ant = "anteriores.php?messel=" . $mes_ant . "&anosel=" . $ano_ant;
+$enlace_mes_pos = "anteriores.php?messel=" . $mes_pos . "&anosel=" . $ano_pos;
+
+
+
+
 $temporal = '99';
 
 
