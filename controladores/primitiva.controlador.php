@@ -724,6 +724,11 @@ class ControladorPrimitiva{
         }else{
             // Indicamos si es Martes o Viernes.
             $fecha_sorteo_texto = $fecha_sorteo[0];
+            
+            // Existe un error con la instrucción STRTOTIME, ya que con fechas con sepeador "/" entiende que el formato
+            // es MES/DIA/AÑO.
+            $fecha_sorteo_texto = substr($fecha_sorteo_texto, 6, 4) . "-" . substr($fecha_sorteo_texto, 3, 2) . "-" . substr($fecha_sorteo_texto, 0, 2);
+
             $fecha_sorteo_texto = strtotime($fecha_sorteo_texto);
             $diasemana = date("N", $fecha_sorteo_texto);
             if($diasemana == 2){
