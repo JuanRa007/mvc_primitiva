@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-09-2026 a las 13:49:18
+-- Tiempo de generación: 26-09-2026 a las 12:45:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,18 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
-  `dominio` text NOT NULL,
   `titulo` text NOT NULL,
   `descripcion` text NOT NULL,
-  `saldominimo` int(11) NOT NULL,
   `palabras_claves` text NOT NULL,
-  `portada` text NOT NULL,
   `email` text NOT NULL,
   `logo` text NOT NULL,
   `icono` text NOT NULL,
-  `redes_sociales` text NOT NULL,
-  `sobre_mi` text NOT NULL,
-  `sobre_mi_completo` text NOT NULL,
+  `dominio` text NOT NULL,
+  `saldominimo` int(11) NOT NULL,
+  `rangoanoini` int(11) NOT NULL,
+  `rangoanofin` int(11) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -48,8 +46,8 @@ CREATE TABLE `blog` (
 -- Volcado de datos para la tabla `blog`
 --
 
-INSERT INTO `blog` (`id`, `dominio`, `titulo`, `descripcion`, `saldominimo`, `palabras_claves`, `portada`, `email`, `logo`, `icono`, `redes_sociales`, `sobre_mi`, `sobre_mi_completo`, `fecha`) VALUES
-(1, 'http://localhost/', 'Nuestras Apuestas BETA', 'Bienvenidos a Nuestras Apuestas: web dedicada al control del grupo de apostantes.', 3, '[\"primitiva\", \"euromillones\", \"loteria nacional\", \"el gordo\", \"sorteos\"]', 'NOUSADA_vistas/img/articulo01.png', 'nuestrasapuestatresynueves@bnuestrasapuestas.es', 'vistas/img/nuestrasapuestas-logo.svg', 'vistas/img/favicon.ico', 'NOUSADA_????[\r\n{\"red\":\"facebook\",\"url\":\"https://www.facebook.com\", \"icono\":\"fab fa-facebook-f\", \"background\":\"#1475E0\"},\r\n{\"red\":\"instagram\",\"url\":\"https://www.instagram.com\", \"icono\":\"fab fa-instagram\", \"background\":\"#B18768\"},\r\n{\"red\":\"twitter\",\"url\":\"https://www.twitter.com\", \"icono\":\"fab fa-twitter\", \"background\":\"#00A6FF\"},\r\n{\"red\":\"youtube\",\"url\":\"https://www.youtube.com\", \"icono\":\"fab fa-youtube\", \"background\":\"#F95F62\"},\r\n{\"red\":\"snapchat\",\"url\":\"https://www.snapchat.com\", \"icono\":\"fab fa-snapchat-ghost\", \"background\":\"#FF9052\"}\r\n]', 'NOUSADA_<div class=\"sobreMi\">\r\n					\r\n					<h4><a href=\"http://localhost/blog-php/sobre-mi\">Sobre Mi</a></h4>\r\n\r\n					<img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-1\">\r\n\r\n					<p class=\"small\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.</p>\r\n\r\n				</div>', 'NOUSADA_<div> <h1>Sobre Mi</h1><img src=\"vistas/img/sobreMi.jpg\" alt=\"Lorem ipsum dolor sit amet\" class=\"img-fluid my-2\" width=\"100%\">  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum odio, eos architecto atque numquam alias laboriosam minima beatae consectetur.  	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa mollitia cupiditate natus iusto! Commodi odio ipsum modi nesciunt pariatur quod aut aliquid sint repellendus, deleniti, possimus, expedita qui ad.</p>  </div>', '2026-09-12 11:12:17');
+INSERT INTO `blog` (`id`, `titulo`, `descripcion`, `palabras_claves`, `email`, `logo`, `icono`, `dominio`, `saldominimo`, `rangoanoini`, `rangoanofin`, `fecha`) VALUES
+(1, 'Nuestras Apuestas BETA', 'Bienvenidos a Nuestras Apuestas: web dedicada al control del grupo de apostantes.', '[\"primitiva\", \"euromillones\", \"loteria nacional\", \"el gordo\", \"sorteos\"]', 'nuestrasapuestatresynueves@bnuestrasapuestas.es', 'vistas/img/nuestrasapuestas-logo.svg', 'vistas/img/favicon.ico', 'http://localhost/', 3, 2003, 2026, '2026-09-26 10:29:35');
 
 --
 -- Índices para tablas volcadas
