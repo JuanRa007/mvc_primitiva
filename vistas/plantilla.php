@@ -1,12 +1,12 @@
 <?php
 
 $blog=ControladorBlog::ctrMostrarBlog();
+// echo '<pre>'.print_r($blog).'</pre>';
 
 // Pagina en visualización
 $app_pagina ="";
 
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -43,8 +43,8 @@ $app_pagina ="";
     if (isset($_GET["pagina"])) {
         $rutas = explode("/", $_GET["pagina"]);
 
-        // echo '<br><br><br><h1>PAGINA 1: '.$_GET["pagina"].'</h1>';
-        // echo '<h1>RUTA: '.$rutas[0].'</h1>';
+         // echo '<br><br><br><h1>PAGINA 1: '.$_GET["pagina"].'</h1>';
+         // echo '<h1>RUTA: '.$rutas[0].'</h1>';
 
         /*=============================================
         Validar las rutas
@@ -88,6 +88,8 @@ $app_pagina ="";
 	include "paginas/modulos/footer.php";
 
 ?>
+
+    <input type="hidden" id="jsrutaActual" value="<?php echo $blog["dominio"];?>">
 
     <!-- Javascrips -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

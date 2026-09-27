@@ -4,6 +4,15 @@ require_once "conexion.php";
 
 class ModeloCalendario{
 
+    // Propiedades de la clase
+     public array $dias_apuestas = [];
+
+    // Constructor de la clase
+     public function __construct() {
+
+     // Inicializar propiedades de la clase
+        $this->dias_apuestas = [];
+   }
     // Obtenemos los sorteos del mes.
     static public function ctrMostrarApuestasMes(string $diaini , string $diafin){
 

@@ -143,7 +143,8 @@ class ModeloPrimitiva{
         // Por la llamada ajax el fichero hay que mirarlo desde "php".
         if ($porajax) {
             //$nombre_fich_ajax = "../" . $nombre_fich;
-            $nombre_fich_ajax = $blog["dominio"].'vistas/' . $nombre_fich;
+            // $nombre_fich_ajax = $blog["dominio"].'vistas/' . $nombre_fich;
+            $nombre_fich_ajax = '../../vistas/' . $nombre_fich;
         } else {
             $nombre_fich_ajax = $blog["dominio"].'vistas/' . $nombre_fich;
         }

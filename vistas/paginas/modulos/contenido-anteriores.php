@@ -1,5 +1,11 @@
 <?php   
 
+// Mínimo saldo permitido
+$app_rangoanoini = $blog["rangoanoini"];
+$app_rangoanofin = $blog["rangoanofin"];
+$rangoanoini = $app_rangoanoini;
+$rangoanofin = $app_rangoanofin;
+
 // Buscamos la última apuesta registrada en la base de datos.
 $ultApuesta = ControladorBlog::ctrMostrarUltimaApuesta();
 // echo '<pre>'; print_r($ultApuesta); echo '</pre>';
@@ -9,13 +15,40 @@ $fecha_UltApu = strtotime($ultApuesta['fecha']);
 $fecha_UltApu = date( 'd/m/Y', $fecha_UltApu);
 
 // Obtenemos el mes/año actual. TODO: nos llegará el mes/año seleccionado por el usuario.
+// Por defecto, HOY:
 $fecha_dia = 0;
 $fecha_mes = date("n", time());
 $fecha_ano = date("Y", time());
 
+// Si nos viene informada una fecha, es la que buscamos.
+if (isset($_POST["messel"]) && isset($_POST["anosel"])) {
+  $fecha_dia = 0;
+  $fecha_mes = $_POST["messel"];
+  $fecha_ano = $_POST["anosel"];
+
+}else{
+  if (isset($rutas) && count($rutas) == 3 ) {
+    if (is_numeric($rutas[1]) && is_numeric($rutas[2])) {
+      $fecha_dia = 0;
+      $fecha_mes = $rutas[1];
+      $fecha_ano = $rutas[2];
+    }
+  }
+}
+
 // Convertimos a dos de longitud.
 $fecha_dia = (strlen($fecha_dia) < 2)  ? "0" . $fecha_dia : $fecha_dia;
 $fecha_mes = (strlen($fecha_mes) < 2)  ? "0" . $fecha_mes : $fecha_mes;
+
+// Controlar los valores recibidos.
+if ($fecha_mes < 1 || $fecha_mes > 12) {
+  // Mes actual
+  $fecha_mes = date("n", time());
+}
+if ($fecha_ano < $app_rangoanoini || $fecha_ano > $app_rangoanofin) {
+  // Año actual
+  $fecha_ano = date("Y", time());
+}
 
 // Obtenemos los datos del mes a procesar.
 $calendario = ControladorCalendario::ctrObtenerCalendario($fecha_mes, $fecha_ano);
@@ -36,14 +69,13 @@ if ($mes_pos > 12) {
   $ano_pos++;
 }
 
-$enlace_mes_ant = "anteriores.php?messel=" . $mes_ant . "&anosel=" . $ano_ant;
-$enlace_mes_pos = "anteriores.php?messel=" . $mes_pos . "&anosel=" . $ano_pos;
+$enlace_mes_ant = $blog["dominio"].'anteriores/'. $mes_ant.'/'.$ano_ant; // "anteriores.php?messel=" . $mes_ant . "&anosel=" . $ano_ant;
+$enlace_mes_pos = $blog["dominio"].'anteriores/'. $mes_pos.'/'.$ano_pos; // "anteriores.php?messel=" . $mes_pos . "&anosel=" . $ano_pos;
 
-
-
-
-$temporal = '99';
-
+// Evitamos un año pasado o posterior.
+if ($rangoanofin > $fecha_ano or $rangoanofin < $fecha_ano) {
+  $rangoanofin = $fecha_ano;
+}
 
 ?>
 
@@ -67,9 +99,9 @@ $temporal = '99';
             <tr>
                 <th colspan="7">
                     <span class="btn-group">
-                        <a class="btn btn-outline-info" href=<?= $temporal; //$enlace_mes_ant; ?>><i class="fas fa-angle-left"></i></a>
-                        <button type="button" class="btn btn-secondary"><?= $temporal; // obtener_nombre_mes_ano($fecha_mes, $fecha_ano); ?></button>
-                        <a class="btn btn-outline-info" href=<?= $temporal; //$enlace_mes_pos; ?>><i class="fas fa-angle-right"></i></a>
+                        <a class="btn btn-outline-info" href=<?= $enlace_mes_ant; ?> alt=<?= $enlace_mes_ant; ?>><i class="fas fa-angle-left"></i></a>
+                        <button type="button" class="btn btn-secondary"><?= ControladorCalendario::obtener_nombre_mes_ano($fecha_mes, $fecha_ano); ?></button>
+                        <a class="btn btn-outline-info" href=<?= $enlace_mes_pos; ?> alt=<?= $enlace_mes_ant; ?>><i class="fas fa-angle-right"></i></a>
                     </span>
                 </th>
             </tr>
@@ -85,22 +117,67 @@ $temporal = '99';
         </thead>
         <tbody>
 
+        <?php
+          $total_celdas = count($calendario);
+          $semana = 1;
+          foreach ($calendario as $indice => $valor) {
+            if ($semana == 1) {
+        ?>
+              <tr>
+        <?php
+            }
 
+            // El texto de la celda, será el día.
+            $cel_texto = $valor['dia'];
+
+            // Estilo de la celda.
+            $clase_celda = "";
+            $enlace_celda = "";
+            if ($valor['hoy']) {
+              $clase_celda = "bg-primary text-white";
+            } elseif ($valor['festivo']) {
+              $clase_celda = "text-danger";
+            } elseif ($valor['enlace']) {
+              $clase_celda = "text-white bg-info puntero";
+              // Para los enlaces, el texto contendrá el enlace al día.
+              $enlace_celda = "onclick='obtenerApuestasdia($cel_texto,$fecha_mes,$fecha_ano)'";
+            }
+
+            // Si es un enlace,
+            if ($enlace_celda) {
+            ?>
+              <td class="<?= $clase_celda ?>" <?= $enlace_celda ?>><?= $cel_texto ?></td>
+            <?php
+            } else {
+            ?>
+              <td class="<?= $clase_celda ?>"><?= $cel_texto ?></td>
+            <?php
+            }
+
+            $semana++;
+            if ($semana > 7) {
+              $semana = 1;
+            ?>
+              </tr>
+            <?php
+            }
+          }
+          ?>
         </tbody>
     </table>
     
     <table class="table-sm table-bordered table-striped tabla-centra text-center mt-5">
       <tbody>
-        <form action="anteriores.php" method="post">
+        <form method="post">
           <tr>
             <td>
               <select name="messel" class="custom-select custom-select-sm">
-                <?= $temporal; // obtener_select_meses($fecha_mes) ?>
+                <?= ControladorCalendario::obtener_select_meses($fecha_mes) ?>
               </select>
             </td>
             <td>
               <select name="anosel" class="custom-select custom-select-sm">
-                <?= $temporal; // obtener_select_anos($fecha_ano); ?>
+                <?= ControladorCalendario::obtener_select_anos($fecha_ano, $app_rangoanoini, $app_rangoanofin); ?>
               </select>
             </td>
             <td>

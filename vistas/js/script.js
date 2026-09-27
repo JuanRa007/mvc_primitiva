@@ -18,7 +18,8 @@ function obtenerApuestasdia(dia, mes, ano) {
 	// Actuamos sobre la zona con id "resultadia"
 	var tabla = document.getElementById('resultadia'),
 		loader = document.getElementById('loader'),
-		premio = document.getElementById('premio');
+		premio = document.getElementById('premio'),
+		rutaActual = document.getElementById('jsrutaActual').value;
 
 	var txtfecha = dia + '/' + mes + '/' + ano;
 	var verpremio = true;
@@ -36,7 +37,8 @@ function obtenerApuestasdia(dia, mes, ano) {
 	var peticion = new XMLHttpRequest();
 
 	// El programa que nos devolverá los datos
-	peticion.open('GET', './php/leer-datos.php?dia=' + dia + '&mes=' + mes + '&ano=' + ano);
+	var url = rutaActual + 'vistas/php/obtener_datos.php?dia=' + dia + '&mes=' + mes + '&ano=' + ano;
+	peticion.open('GET', url);
 
 	// Ponemos un cursor dando vueltas (de espera)
 	loader.classList.add('active');
@@ -160,6 +162,7 @@ function obtenerApuestasdia(dia, mes, ano) {
 				// Añadimos la fila a la tabla.
 				// tabla.appendChild(elemento);
 				// console.log(elemento);
+
 			}); // datos.forEach
 
 			// Finalizamos la tabla.

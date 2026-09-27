@@ -101,4 +101,25 @@ class ModeloBlog{
         $stmt = "";
 
     }   
+
+    // Obtenemos UNA APUESTA
+    static public function mdlObtenerUnaApuesta(string $tabla, string $item, string $valor){
+
+        $sql = "SELECT * FROM $tabla WHERE $item = :$item";
+
+        $stmt = Conexion::conectar()->prepare($sql);
+
+        $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        return $stmt->fetch();            
+
+        $stmt->close();
+
+        $stmt = "";
+
+    }
+
+
 }

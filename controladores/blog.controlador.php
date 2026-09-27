@@ -24,6 +24,17 @@
         }
 
 
+        static public function ctrObtenerUnaApuesta(string $item, string $valor){
+
+            $tabla = "numapuesta";
+
+            $respuesta = ModeloBlog::mdlObtenerUnaApuesta($tabla, $item, $valor);
+
+            return $respuesta;
+
+        }
+
+
         static public function ctrObtenerFrases(){
 
             $tabla = "frases_celebres";
