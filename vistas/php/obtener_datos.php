@@ -34,9 +34,10 @@ if ($_GET) {
         foreach ($ant_apuestas as $ant_indice => $ant_valor_apu){
 
             if ($ant_apuesta == 'lotnavidad' || $ant_apuesta == 'laonce') {
-                // TODO: La ubicación del fichero es correcta pero no a la hora de mostrarla.
                 $ant_decimo_frontal = ModeloPrimitiva::funcObtenerNombreFicheroDecimo($ant_valor_apu["nom_fich"], $ant_apuesta, true, true);
                 $ant_decimo_trasera = ModeloPrimitiva::funcObtenerNombreFicheroDecimo($ant_valor_apu["nom_fich"], $ant_apuesta, false, true);
+                $ant_decimo_frontal = $blog["servidor"].'vistas/'.$ant_decimo_frontal;
+                $ant_decimo_trasera = $blog["servidor"].'vistas/'.$ant_decimo_trasera;
             } else {
                 $ant_decimo_frontal = "";
                 $ant_decimo_trasera = "";
